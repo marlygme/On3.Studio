@@ -1,0 +1,147 @@
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Mic, Video, Camera, Users } from "lucide-react";
+
+export default function Home() {
+  const services = [
+    {
+      title: "Recording Studio",
+      description: "Professional recording space with industry-standard equipment for your musical creations.",
+      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      equipment: ["Neve 1073DPX", "Tube-Tech CL 1B", "SSL Sigma", "U87", "Focal Trio6"],
+      href: "/music",
+      icon: Mic
+    },
+    {
+      title: "Podcast Studio",
+      description: "Multi-camera podcast setup perfect for intimate conversations and professional content creation.",
+      image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      equipment: ["SM7Bs", "RØDECaster Pro", "ATEM Mini Pro", "Multi-camera setup"],
+      href: "/podcast",
+      icon: Video
+    },
+    {
+      title: "Photography Studio",
+      description: "Spacious cyclorama studio with professional lighting for all your creative visual projects.",
+      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      equipment: ["3m x 7.5m cyclorama", "Pro lighting options", "Epson projector"],
+      href: "/photography",
+      icon: Camera
+    },
+    {
+      title: "Creative Lounge",
+      description: "Open, relaxed space for rehearsals, writing, workshops, intimate events, and creative collaboration.",
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      equipment: ["PIONEER XDJ-XZ", "Full sound system"],
+      href: "/events",
+      icon: Users
+    }
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-background to-background">
+          <img 
+            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080"
+            alt="Dark moody recording studio with warm orange lighting" 
+            className="w-full h-full object-cover opacity-40" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
+        </div>
+        
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 hero-text-shadow" data-testid="text-hero-title">
+            <span className="text-primary">ON3</span> is a creative lounge in Melbourne
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed hero-text-shadow max-w-3xl mx-auto" data-testid="text-hero-description">
+            A home away from home for artists, built for music, connection and culture. 
+            A community and space to plug in, create, and feel free.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-primary text-primary-foreground px-8 py-4 text-lg hover:bg-primary/90"
+              data-testid="button-explore-spaces"
+            >
+              Explore Our Spaces
+            </Button>
+            <Link href="/contact">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-primary text-primary px-8 py-4 text-lg hover:bg-primary/10"
+                data-testid="button-book-session"
+              >
+                Book a Session
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview - The Space */}
+      <section id="services" className="py-20 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="text-services-title">
+              <span className="text-primary">THE</span> SPACE
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Everything under one roof, ready to go
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Link key={service.title} href={service.href}>
+                  <Card className="bg-card rounded-xl p-8 service-card-hover cursor-pointer border border-border h-full" data-testid={`card-service-${index}`}>
+                    <img 
+                      src={service.image}
+                      alt={`${service.title} - professional studio space`}
+                      className="w-full h-48 object-cover rounded-lg mb-6" 
+                    />
+                    <div className="flex items-center gap-3 mb-4">
+                      <IconComponent className="text-accent w-6 h-6" />
+                      <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <div className="space-y-2 text-sm">
+                      {service.equipment.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <div className="w-1 h-1 bg-accent rounded-full"></div>
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement - Why We Exist */}
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8" data-testid="text-mission-title">
+            <span className="text-primary">WHY</span> WE EXIST
+          </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8" data-testid="text-mission-description">
+            We saw a gap and wanted to give back. ON3 is built with integrity, a safe, 
+            inspiring space where artists can land in Melbourne, feel at home, tap-in and 
+            create without the noise.
+          </p>
+          <p className="text-lg text-accent font-semibold" data-testid="text-mission-focus">
+            Our focus is community, passion, and real culture.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
