@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Camera, Lightbulb, Monitor, Square } from "lucide-react";
+import photographyStudioImg from "@assets/generated_images/Photography_studio_space_image_8dc33136.png";
 
 export default function Photography() {
   const features = [
@@ -40,7 +41,7 @@ export default function Photography() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <img 
-            src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+            src={photographyStudioImg}
             alt="Photography studio with white cyclorama wall and professional lighting equipment"
             className="w-full h-96 object-cover rounded-xl" 
             data-testid="img-photography-studio"

@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mic, Sliders, Monitor, Volume2 } from "lucide-react";
+import recordingStudioImg from "@assets/generated_images/Recording_studio_hero_background_1aff66b6.png";
 
 export default function Music() {
   const equipment = [
@@ -40,7 +41,7 @@ export default function Music() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <img 
-            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+            src={recordingStudioImg}
             alt="High-end recording studio featuring vintage and modern equipment with warm ambient lighting"
             className="w-full h-96 object-cover rounded-xl" 
             data-testid="img-recording-studio"

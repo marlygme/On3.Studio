@@ -2,13 +2,17 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mic, Video, Camera, Users } from "lucide-react";
+import recordingStudioHero from "@assets/generated_images/Recording_studio_hero_background_1aff66b6.png";
+import podcastStudioImg from "@assets/generated_images/Podcast_studio_background_image_a5f50052.png";
+import photographyStudioImg from "@assets/generated_images/Photography_studio_space_image_8dc33136.png";
+import creativeLoungeImg from "@assets/generated_images/Creative_lounge_atmosphere_image_89c2e339.png";
 
 export default function Home() {
   const services = [
     {
       title: "Recording Studio",
       description: "Professional recording space with industry-standard equipment for your musical creations.",
-      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: recordingStudioHero,
       equipment: ["Neve 1073DPX", "Tube-Tech CL 1B", "SSL Sigma", "U87", "Focal Trio6"],
       href: "/music",
       icon: Mic
@@ -16,7 +20,7 @@ export default function Home() {
     {
       title: "Podcast Studio",
       description: "Multi-camera podcast setup perfect for intimate conversations and professional content creation.",
-      image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      image: podcastStudioImg,
       equipment: ["SM7Bs", "RØDECaster Pro", "ATEM Mini Pro", "Multi-camera setup"],
       href: "/podcast",
       icon: Video
@@ -24,7 +28,7 @@ export default function Home() {
     {
       title: "Photography Studio",
       description: "Spacious cyclorama studio with professional lighting for all your creative visual projects.",
-      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: photographyStudioImg,
       equipment: ["3m x 7.5m cyclorama", "Pro lighting options", "Epson projector"],
       href: "/photography",
       icon: Camera
@@ -32,7 +36,7 @@ export default function Home() {
     {
       title: "Creative Lounge",
       description: "Open, relaxed space for rehearsals, writing, workshops, intimate events, and creative collaboration.",
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: creativeLoungeImg,
       equipment: ["PIONEER XDJ-XZ", "Full sound system"],
       href: "/events",
       icon: Users
@@ -45,7 +49,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-background to-background">
           <img 
-            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080"
+            src={recordingStudioHero}
             alt="Dark moody recording studio with warm orange lighting" 
             className="w-full h-full object-cover opacity-40" 
           />
