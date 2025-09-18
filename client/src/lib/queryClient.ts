@@ -29,7 +29,27 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    // Build URL from hierarchical query key
+    let url = queryKey[0] as string;
+    
+    // Handle parameterized routes (e.g., ['/api/availability', serviceId])
+    if (queryKey.length === 2 && typeof queryKey[1] === 'string') {
+      url = `${url}/${queryKey[1]}`;
+    }
+    // Handle query parameters (e.g., ['/api/bookings', { startDate, endDate, serviceId }])
+    else if (queryKey.length === 2 && typeof queryKey[1] === 'object' && queryKey[1] !== null) {
+      const params = new URLSearchParams();
+      for (const [key, value] of Object.entries(queryKey[1] as Record<string, any>)) {
+        if (value !== undefined && value !== null && value !== '') {
+          params.append(key, String(value));
+        }
+      }
+      if (params.toString()) {
+        url = `${url}?${params.toString()}`;
+      }
+    }
+
+    const res = await fetch(url, {
       credentials: "include",
     });
 

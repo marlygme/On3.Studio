@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mic, Video, Monitor, Headphones } from "lucide-react";
-import podcastStudioImg from "@assets/generated_images/Podcast_studio_background_image_a5f50052.png";
 
 export default function Podcast() {
   const equipment = [
@@ -40,12 +39,12 @@ export default function Podcast() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <img 
-            src={podcastStudioImg}
-            alt="Modern podcast studio setup with multiple microphones and recording equipment"
-            className="w-full h-96 object-cover rounded-xl" 
-            data-testid="img-podcast-studio"
-          />
+          <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
+              <p className="text-muted-foreground mt-2">Podcast studio image placeholder</p>
+            </div>
+          </div>
           
           <div>
             <h2 className="text-3xl font-bold mb-8 text-accent" data-testid="text-podcast-equipment-title">Professional Podcast Equipment</h2>

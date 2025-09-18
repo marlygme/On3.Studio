@@ -3,17 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mic, Video, Camera, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import recordingStudioHero from "@assets/generated_images/Recording_studio_hero_background_1aff66b6.png";
-import podcastStudioImg from "@assets/generated_images/Podcast_studio_background_image_a5f50052.png";
-import photographyStudioImg from "@assets/generated_images/Photography_studio_space_image_8dc33136.png";
-import creativeLoungeImg from "@assets/generated_images/Creative_lounge_atmosphere_image_89c2e339.png";
 
 export default function Home() {
   const services = [
     {
       title: "Recording Studio",
       description: "Professional recording space with industry-standard equipment for your musical creations.",
-      image: recordingStudioHero,
       equipment: ["Neve 1073DPX", "Tube-Tech CL 1B", "SSL Sigma", "U87", "Focal Trio6"],
       href: "/music",
       icon: Mic
@@ -21,7 +16,6 @@ export default function Home() {
     {
       title: "Podcast Studio",
       description: "Multi-camera podcast setup perfect for intimate conversations and professional content creation.",
-      image: podcastStudioImg,
       equipment: ["SM7Bs", "RØDECaster Pro", "ATEM Mini Pro", "Multi-camera setup"],
       href: "/podcast",
       icon: Video
@@ -29,7 +23,6 @@ export default function Home() {
     {
       title: "Photography Studio",
       description: "Spacious cyclorama studio with professional lighting for all your creative visual projects.",
-      image: photographyStudioImg,
       equipment: ["3m x 7.5m cyclorama", "Pro lighting options", "Epson projector"],
       href: "/photography",
       icon: Camera
@@ -37,7 +30,6 @@ export default function Home() {
     {
       title: "Creative Lounge",
       description: "Open, relaxed space for rehearsals, writing, workshops, intimate events, and creative collaboration.",
-      image: creativeLoungeImg,
       equipment: ["PIONEER XDJ-XZ", "Full sound system"],
       href: "/events",
       icon: Users
@@ -48,19 +40,15 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <motion.div 
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-background to-background"
-        >
-          <img 
-            src={recordingStudioHero}
-            alt="Dark moody recording studio with warm orange lighting" 
-            className="w-full h-full object-cover opacity-40" 
-          />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background">
+          <div className="w-full h-full flex items-center justify-center bg-card/20">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-primary opacity-60">IMAGE HERE</p>
+              <p className="text-muted-foreground mt-2 opacity-60">Hero background image placeholder</p>
+            </div>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
-        </motion.div>
+        </div>
         
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.h1 
@@ -101,7 +89,7 @@ export default function Home() {
                 Explore Our Spaces
               </Button>
             </motion.div>
-            <Link href="/contact">
+            <Link href="/booking">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -174,13 +162,12 @@ export default function Home() {
                       whileTap={{ scale: 0.98 }}
                     >
                       <Card className="bg-card rounded-xl p-8 service-card-hover cursor-pointer border border-border h-full" data-testid={`card-service-${index}`}>
-                        <motion.img 
-                          src={service.image}
-                          alt={`${service.title} - professional studio space`}
-                          className="w-full h-48 object-cover rounded-lg mb-6" 
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
-                        />
+                        <div className="w-full h-48 bg-card/30 rounded-lg mb-6 flex items-center justify-center border border-border">
+                          <div className="text-center">
+                            <p className="text-xl font-bold text-primary">IMAGE HERE</p>
+                            <p className="text-sm text-muted-foreground mt-1">{service.title} image placeholder</p>
+                          </div>
+                        </div>
                         <div className="flex items-center gap-3 mb-4">
                           <motion.div
                             whileHover={{ rotate: 10 }}

@@ -12,7 +12,9 @@ import Music from "@/pages/Music";
 import Podcast from "@/pages/Podcast";
 import Photography from "@/pages/Photography";
 import Events from "@/pages/Events";
+import Workshops from "@/pages/Workshops";
 import Contact from "@/pages/Contact";
+import Booking from "@/pages/Booking";
 import NotFound from "@/pages/not-found";
 
 function AnimatedRoute({ path, component: Component }: { path?: string; component: any }) {
@@ -39,7 +41,9 @@ function Router() {
             <AnimatedRoute path="/podcast" component={Podcast} />
             <AnimatedRoute path="/photography" component={Photography} />
             <AnimatedRoute path="/events" component={Events} />
+            <AnimatedRoute path="/workshops" component={Workshops} />
             <AnimatedRoute path="/contact" component={Contact} />
+            <AnimatedRoute path="/booking" component={Booking} />
             <AnimatedRoute component={NotFound} />
           </Switch>
         </div>

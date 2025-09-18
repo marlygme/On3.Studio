@@ -13,12 +13,12 @@ export default function About() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
-            <img 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-              alt="Community gathering in creative space with warm ambient lighting"
-              className="w-full h-96 object-cover rounded-xl" 
-              data-testid="img-community"
-            />
+            <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
+                <p className="text-muted-foreground mt-2">Community gathering image placeholder</p>
+              </div>
+            </div>
           </div>
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8" data-testid="text-why-exist-title">
@@ -51,12 +51,12 @@ export default function About() {
             </p>
           </div>
           <div className="order-1 lg:order-2">
-            <img 
-              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-              alt="Artists collaborating in creative studio space"
-              className="w-full h-96 object-cover rounded-xl" 
-              data-testid="img-artists-collaboration"
-            />
+            <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
+                <p className="text-muted-foreground mt-2">Artists collaboration image placeholder</p>
+              </div>
+            </div>
           </div>
         </div>
 

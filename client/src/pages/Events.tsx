@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Users, Music, Mic, Coffee } from "lucide-react";
-import creativeLoungeImg from "@assets/generated_images/Creative_lounge_atmosphere_image_89c2e339.png";
 
 export default function Events() {
   const spaces = [
@@ -40,12 +39,12 @@ export default function Events() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <img 
-            src={creativeLoungeImg}
-            alt="Creative lounge space with comfortable seating, warm lighting, and artistic atmosphere"
-            className="w-full h-96 object-cover rounded-xl" 
-            data-testid="img-creative-lounge"
-          />
+          <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
+              <p className="text-muted-foreground mt-2">Creative lounge image placeholder</p>
+            </div>
+          </div>
           
           <div>
             <h2 className="text-3xl font-bold mb-8 text-accent" data-testid="text-lounge-features-title">Lounge Features</h2>

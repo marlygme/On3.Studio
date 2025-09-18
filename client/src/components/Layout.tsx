@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import on3Logo from "@assets/on3logo_1758183733141.png";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,13 +10,19 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [spaceDropdownOpen, setSpaceDropdownOpen] = useState(false);
 
   const navigation = [
-    { name: "Workshops", href: "/events" },
-    { name: "Music", href: "/music" },
-    { name: "Events", href: "/events" },
     { name: "About Us", href: "/about" },
+    { name: "Workshops", href: "/workshops" },
     { name: "Contact Us", href: "/contact" },
+  ];
+
+  const spaceOptions = [
+    { name: "Recording Studio", href: "/music" },
+    { name: "Podcast Room", href: "/podcast" },
+    { name: "Photography/Cyclorama", href: "/photography" },
+    { name: "Creative Lounge/Kitchen", href: "/events" },
   ];
 
   return (
@@ -26,9 +33,13 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
               <Link href="/" data-testid="link-home">
-                <h1 className="text-2xl font-bold text-primary cursor-pointer">ON3 STUDIO</h1>
+                <img 
+                  src={on3Logo} 
+                  alt="ON3 STUDIO Logo" 
+                  className="h-8 w-auto cursor-pointer"
+                />
               </Link>
-              <div className="hidden md:flex space-x-6">
+              <div className="hidden md:flex space-x-6 items-center">
                 {navigation.map((item) => (
                   <Link 
                     key={item.name} 
@@ -43,10 +54,40 @@ export default function Layout({ children }: LayoutProps) {
                     {item.name}
                   </Link>
                 ))}
+                
+                {/* The Space Dropdown */}
+                <div className="relative">
+                  <button
+                    className="flex items-center space-x-1 text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setSpaceDropdownOpen(!spaceDropdownOpen)}
+                    data-testid="dropdown-the-space"
+                  >
+                    <span>The Space</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                  
+                  {spaceDropdownOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-md shadow-lg z-50">
+                      <div className="py-1">
+                        {spaceOptions.map((option) => (
+                          <Link
+                            key={option.name}
+                            href={option.href}
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                            data-testid={`dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
+                            onClick={() => setSpaceDropdownOpen(false)}
+                          >
+                            {option.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/contact" data-testid="button-book-now">
+              <Link href="/booking" data-testid="button-book-now">
                 <button className="bg-primary text-primary-foreground px-6 py-2 rounded-md font-semibold hover:bg-primary/90 transition-colors">
                   Book Now
                 </button>
@@ -85,6 +126,22 @@ export default function Layout({ children }: LayoutProps) {
                     {item.name}
                   </Link>
                 ))}
+                
+                {/* Mobile Space Options */}
+                <div className="border-t border-border pt-4">
+                  <p className="text-sm font-semibold text-primary mb-2">The Space</p>
+                  {spaceOptions.map((option) => (
+                    <Link
+                      key={option.name}
+                      href={option.href}
+                      className="block py-2 pl-4 text-muted-foreground hover:text-primary transition-colors"
+                      data-testid={`mobile-dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {option.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           )}
@@ -101,7 +158,11 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-primary mb-4">ON3 STUDIO</h3>
+              <img 
+                src={on3Logo} 
+                alt="ON3 STUDIO Logo" 
+                className="h-8 w-auto mb-4"
+              />
               <p className="text-muted-foreground mb-6">
                 A creative lounge in Melbourne. A home away from home for artists.
               </p>
