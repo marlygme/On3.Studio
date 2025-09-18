@@ -1,0 +1,67 @@
+Project Goal:
+Create a responsive, multi-page website for "ON3 STUDIO," a creative lounge in Melbourne.
+
+Primary Design Direction (CRITICAL):
+The entire aesthetic of the website—including colors, typography, and imagery style—must be directly based on the provided PDF document ("ON3 STUDIO MELBOURNE.pdf"). The look and feel should be dark, moody, and cinematic, reflecting a "home away from home for artists". Use a clean, simple sans-serif font for all text. The color palette should be inspired by the warm, orange-toned lighting against a dark background, as seen in the PDF's main image.
+
+Website Structure & Pages:
+
+Create the following pages with a persistent header and footer:
+
+1. Header Navigation:
+
+Links: Workshops, Music, Events, About Us, Contact Us.
+
+Call-to-Action: A prominent "Book Now" button.
+
+2. Homepage:
+
+Hero Section: Use a large, high-quality background image similar in style to the PDF. Overlay the main tagline: "ON3 is a creative lounge in Melbourne. A home away from home for artists, built for music, connection and culture." 
+
+
+Services Overview ("The Space"): A section that briefly introduces the different spaces available (Recording Studio, Podcast Room, Photography/Cyc, Creative Lounge). Each summary should link to its dedicated service page.
+
+
+Mission Statement ("Why We Exist"): Include the text: "We saw a gap and wanted to give back. ON3 is built with integrity, a safe, inspiring space where artists can land in Melbourne, feel at home, tap-in and create without the noise." 
+
+3. About Us Page:
+
+Our Focus: Use the content from the "WHY WE EXIST" and "COMMUNITY" sections of the PDF. Emphasize that the focus is on "community, passion, and real culture" and that the space is centered around growth and connection.
+
+
+4. Services Pages (Individual Pages):
+
+Music / Recording Studio:
+
+Detail the key equipment: Neve 1073DPX, Tube-Tech CL 1B, SSL Sigma, U87, Focal Trio6 + more.
+
+Podcast Studio:
+
+List the gear: SM7Bs, RØDECaster Pro, ATEM Mini Pro, and the multi-camera setup.
+
+Photography Studio:
+
+Specify the features: 3m x 7.5m cyclorama, pro lighting options, and Epson projector.
+
+Events / Creative Lounge:
+
+Describe the space: An open, relaxed area for rehearsals, writing, workshops, intimate events, listening parties, and activations.
+
+List the available gear: PIONEER XDJ-XZ and a full sound system.
+
+5. Contact Us Page:
+
+
+Contact Information: Prominently display the email address: TEAM@ON3.STUDIO.
+
+Contact Form: Include a form with the following fields: First Name, Last Name, Email, Phone, and Message.
+
+6. Footer:
+
+Include the contact email, social media links (if any), and repeat the main navigation links.
+
+Functionality:
+
+The website must be fully responsive and function flawlessly on desktop, tablet, and mobile devices.
+
+The "Book Now" button should lead to the Contact Us page's form or a dedicated booking page.
