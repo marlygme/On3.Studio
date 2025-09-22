@@ -88,7 +88,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Location</h3>
-                  <p className="text-muted-foreground">Melbourne, Australia</p>
+                  <p className="text-muted-foreground">325 Victoria St, Brunswick VIC 3056</p>
                 </div>
               </div>
             </div>

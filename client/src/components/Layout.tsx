@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import on3Logo from "@assets/on3logo_1758183733141.png";
+import on3Logo from "@assets/on3logo_1758532442268.png";
 
 interface LayoutProps {
   children: React.ReactNode;

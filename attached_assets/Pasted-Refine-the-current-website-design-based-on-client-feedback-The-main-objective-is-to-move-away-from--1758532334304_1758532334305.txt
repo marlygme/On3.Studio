@@ -1,0 +1,39 @@
+Refine the current website design based on client feedback. The main objective is to move away from the "corporate" feel on the desktop version and inject a more creative, unique, and abstract UI inspired by changebycole.com and marlyg.me. We also need to fix critical typography issues and update content.
+
+1. Fix Typography and Spacing (Legibility):
+
+Problem: As seen in the provided screenshot, text in the "Contact Information" and "How It Works" sections is squished and difficult to read.
+
+Action: Increase the vertical spacing (margin or padding) between list items and contact details. Increase the line-height for all descriptive text to improve readability. Ensure there is clear visual separation between a heading (e.g., "Plug-and-play") and its corresponding paragraph.
+
+2. Redesign Desktop Layout & Header:
+
+Problem: The current desktop layout is a single, centered column which feels too corporate and generic.
+
+Action (Layout):
+
+Abandon the single-column structure for main content. Implement an asymmetrical, multi-column grid.
+
+For example, a section could have its main heading in a narrow left column, with the body text and other elements in a wider right column. This will immediately create a more dynamic feel.
+
+Action (Header):
+
+Make the desktop header more distinctive. Try an alternative layout, such as centering the "ON3" logo and splitting the navigation links on either side of it. Add a more expressive hover effect to the navigation links.
+
+3. Inject Creativity into Page Sections:
+
+Problem: The "About Us," "Workshops," and individual "Space" pages are visually bland. They need a unique UI.
+
+Action ("About Us"):
+
+Redesign this section using a two-column layout. Place a large, stylized pull-quote on one side (e.g., "A home away from home for artists...") and the main paragraph on the other. Overlap a subtle, moody background image behind one of the columns to create depth.
+
+Action ("Spaces" & "Workshops" Pages):
+
+Implement a split-screen layout. On one side of the screen, display a large, high-quality image of the specific studio space (e.g., the recording studio). This image should remain "sticky" as the user scrolls.
+
+On the other side, list the details, equipment, and information, allowing the user to scroll through the text while the image remains in view. This creates a much more engaging and less static experience.
+
+4. Minor Content Fix:
+
+Address Update: Please change the location/address listed on the website to the correct one: 325 Victoria St, Brunswick VIC 3056.
