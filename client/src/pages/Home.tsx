@@ -85,6 +85,12 @@ export default function Home() {
                 size="lg" 
                 className="bg-primary text-primary-foreground px-8 py-4 text-lg hover:bg-primary/90"
                 data-testid="button-explore-spaces"
+                onClick={() => {
+                  const element = document.querySelector('#services');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 Explore Our Spaces
               </Button>
@@ -110,8 +116,8 @@ export default function Home() {
       </section>
 
       {/* Services Overview - The Space */}
-      <section id="services" className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+      <section id="services" className="section-spacing px-6">
+        <div className="container mx-auto max-w-7xl">
           <motion.div 
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -139,7 +145,7 @@ export default function Home() {
                 }
               }
             }}
-            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
+            className="professional-grid md:grid-cols-2"
           >
             {services.map((service, index) => {
               const IconComponent = service.icon;

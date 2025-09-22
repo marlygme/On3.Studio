@@ -1,0 +1,45 @@
+Project Goal:
+Modify the existing website at https://5909febf.on3-studio.pages.dev/. The goal is to implement a new design that is a professional and stylish blend of two key inspirations: the clean, corporate structure of changebycole.com and the bold, creative typography of marlyg.me.
+
+Core Design Principles:
+
+Structure from changebycole.com: The layout must be clean, grid-based, and highly professional. Information should be easy to read and navigate.
+
+Personality from marlyg.me: The typography, especially for headings, should be bold, expressive, and serve as the main creative element.
+
+Specific Implementation Details:
+
+Layout and Structure:
+
+Re-implement the page using a strict grid system like changebycole.com. Ensure all content is well-aligned and sections are clearly separated with sufficient spacing.
+
+The overall layout should feel structured and intentional, not experimental or overlapping.
+
+Typography (Key Task):
+
+Headings (<h1>, <h2>): Replace the current font with a bold, impactful, and slightly oversized sans-serif display font. This should be the main visual feature, inspired by the confidence of marlyg.me.
+
+Body Text (<p>): For all paragraphs and descriptions, use a clean, modern, and highly legible sans-serif font to ensure readability, similar to the professional text on changebycole.com.
+
+Color Palette:
+
+Maintain the current professional monochrome palette: a black background with white and light-grey text. This will provide the clean, corporate foundation.
+
+Navigation Bar:
+
+Make the header navigation bar "sticky" so it remains fixed at the top of the screen as the user scrolls.
+
+Ensure the anchor links scroll smoothly to the corresponding page sections.
+
+Services Section:
+
+Currently, the services are in a single list. Reorganize the four services ("Recording Studio," "Podcast Room," "Photography/Cyclorama," and "The Venue") into a clean two-by-two grid.
+
+Add a subtle hover effect to each item in the grid, such as a slight lift or a background color change, to add a touch of interactivity.
+
+Contact Form:
+
+Style the contact form elements to look modern and professional. Input fields should be clean, with clear borders and labels. The "Submit" button should be styled to match the site's aesthetic.
+
+Final Outcome:
+The finished website should project an image of a high-end, professional creative studio. It must combine the structural clarity of a corporate site with the unique, bold personality of a creative portfolio.

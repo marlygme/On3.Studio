@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import on3Logo from "@assets/on3logo_1758183733141.png";
 
@@ -11,6 +11,17 @@ export default function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [spaceDropdownOpen, setSpaceDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   const navigation = [
     { name: "About Us", href: "/about" },
@@ -28,8 +39,8 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-        <nav className="container mx-auto px-6 py-4">
+      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border' : 'bg-background/80 backdrop-blur-md border-b border-border/50'}`}>
+        <nav className={`container mx-auto px-6 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
               <Link href="/" data-testid="link-home">
@@ -149,14 +160,14 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="pt-24">
         {children}
       </main>
 
       {/* Footer */}
       <footer className="bg-card border-t border-border py-12 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             <div>
               <img 
                 src={on3Logo} 

@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
@@ -52,8 +51,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-20 px-6">
-      <div className="container mx-auto max-w-4xl">
+    <div className="section-spacing px-6">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-8" data-testid="text-contact-title">
             <span className="text-primary">GET</span> IN TOUCH
@@ -63,7 +62,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="professional-grid lg:grid-cols-2">
           {/* Contact Information */}
           <div>
             <h2 className="text-3xl font-bold mb-8 text-accent" data-testid="text-contact-info-title">Contact Information</h2>
@@ -129,17 +128,16 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card>
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-6" data-testid="text-contact-form-title">Send us a message</h2>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="professional-form">
+            <h2 className="text-2xl font-bold mb-8" data-testid="text-contact-form-title">Send us a message</h2>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name</Label>
                     <Input
                       id="firstName"
                       {...form.register("firstName")}
-                      className="bg-input"
+                      className="professional-input"
                       data-testid="input-first-name"
                     />
                     {form.formState.errors.firstName && (
@@ -153,7 +151,7 @@ export default function Contact() {
                     <Input
                       id="lastName"
                       {...form.register("lastName")}
-                      className="bg-input"
+                      className="professional-input"
                       data-testid="input-last-name"
                     />
                     {form.formState.errors.lastName && (
@@ -169,7 +167,7 @@ export default function Contact() {
                     id="email"
                     type="email"
                     {...form.register("email")}
-                    className="bg-input"
+                    className="professional-input"
                     data-testid="input-email"
                   />
                   {form.formState.errors.email && (
@@ -184,7 +182,7 @@ export default function Contact() {
                     id="phone"
                     type="tel"
                     {...form.register("phone")}
-                    className="bg-input"
+                    className="professional-input"
                     data-testid="input-phone"
                   />
                   {form.formState.errors.phone && (
@@ -199,7 +197,7 @@ export default function Contact() {
                     id="message"
                     rows={5}
                     {...form.register("message")}
-                    className="bg-input resize-none"
+                    className="professional-input resize-none"
                     data-testid="textarea-message"
                   />
                   {form.formState.errors.message && (
@@ -217,8 +215,7 @@ export default function Contact() {
                   {contactMutation.isPending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
-            </CardContent>
-          </Card>
+          </div>
         </div>
       </div>
     </div>
