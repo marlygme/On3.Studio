@@ -41,69 +41,21 @@ export default function Layout({ children }: LayoutProps) {
       {/* Header */}
       <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border' : 'bg-background/80 backdrop-blur-md border-b border-border/50'}`}>
         <nav className={`container mx-auto px-6 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`}>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
-              <Link href="/" data-testid="link-home">
-                <img 
-                  src={on3Logo} 
-                  alt="ON3 STUDIO Logo" 
-                  className="h-12 w-auto cursor-pointer"
-                />
-              </Link>
-              <div className="hidden md:flex space-x-6 items-center">
-                {navigation.map((item) => (
-                  <Link 
-                    key={item.name} 
-                    href={item.href} 
-                    data-testid={`link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className={`nav-link transition-colors ${
-                      location === item.href 
-                        ? 'text-orange-accent' 
-                        : 'text-muted-foreground'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                
-                {/* The Space Dropdown */}
-                <div className="relative">
-                  <button
-                    className="flex items-center space-x-1 text-muted-foreground nav-link transition-colors"
-                    onClick={() => setSpaceDropdownOpen(!spaceDropdownOpen)}
-                    data-testid="dropdown-the-space"
-                  >
-                    <span>The Space</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                  
-                  {spaceDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-md shadow-lg z-50">
-                      <div className="py-1">
-                        {spaceOptions.map((option) => (
-                          <Link
-                            key={option.name}
-                            href={option.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground cta-link hover:bg-accent/50 transition-colors"
-                            data-testid={`dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
-                            onClick={() => setSpaceDropdownOpen(false)}
-                          >
-                            {option.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+          {/* Mobile Layout - Traditional */}
+          <div className="md:hidden flex items-center justify-between">
+            <Link href="/" data-testid="link-home">
+              <img 
+                src={on3Logo} 
+                alt="ON3 STUDIO Logo" 
+                className="h-12 w-auto cursor-pointer"
+              />
+            </Link>
             <div className="flex items-center space-x-4">
               <Link href="/booking" data-testid="button-book-now">
-                <button className="btn-orange-accent px-6 py-2 rounded-md font-semibold">
+                <button className="btn-orange-accent px-4 py-2 rounded-md font-semibold text-sm">
                   Book Now
                 </button>
               </Link>
-              {/* Mobile menu button */}
               <button 
                 className="md:hidden"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -115,6 +67,92 @@ export default function Layout({ children }: LayoutProps) {
                   <Menu className="text-foreground text-xl" />
                 )}
               </button>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Creative Split Navigation */}
+          <div className="hidden md:flex items-center justify-between creative-header-layout">
+            {/* Left Navigation */}
+            <div className="flex items-center space-x-8">
+              {navigation.slice(0, 2).map((item) => (
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  data-testid={`link-${item.name.toLowerCase().replace(' ', '-')}`}
+                  className={`nav-link transition-colors text-lg font-medium ${
+                    location === item.href 
+                      ? 'text-orange-accent' 
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Centered Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/" data-testid="link-home">
+                <img 
+                  src={on3Logo} 
+                  alt="ON3 STUDIO Logo" 
+                  className="h-16 w-auto cursor-pointer logo-glow transition-all duration-300 hover:scale-105"
+                />
+              </Link>
+            </div>
+
+            {/* Right Navigation */}
+            <div className="flex items-center space-x-8">
+              {/* The Space Dropdown */}
+              <div className="relative">
+                <button
+                  className="flex items-center space-x-1 text-muted-foreground nav-link transition-colors text-lg font-medium"
+                  onClick={() => setSpaceDropdownOpen(!spaceDropdownOpen)}
+                  data-testid="dropdown-the-space"
+                >
+                  <span>The Space</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                
+                {spaceDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-56 bg-card border border-border rounded-md shadow-lg z-50">
+                    <div className="py-1">
+                      {spaceOptions.map((option) => (
+                        <Link
+                          key={option.name}
+                          href={option.href}
+                          className="block px-4 py-2 text-sm text-muted-foreground cta-link hover:bg-accent/50 transition-colors"
+                          data-testid={`dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
+                          onClick={() => setSpaceDropdownOpen(false)}
+                        >
+                          {option.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {navigation.slice(2).map((item) => (
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  data-testid={`link-${item.name.toLowerCase().replace(' ', '-')}`}
+                  className={`nav-link transition-colors text-lg font-medium ${
+                    location === item.href 
+                      ? 'text-orange-accent' 
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+              <Link href="/booking" data-testid="button-book-now">
+                <button className="btn-orange-accent px-6 py-2 rounded-md font-semibold">
+                  Book Now
+                </button>
+              </Link>
             </div>
           </div>
           

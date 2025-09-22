@@ -255,6 +255,45 @@
   filter: drop-shadow(0 4px 8px rgba(242, 210, 84, 0.3));
 }
 
+/* Creative header styling */
+.creative-header-layout {
+  position: relative;
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+  transition: all 0.3s ease;
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 30px rgba(242, 210, 84, 0.3));
+  transform: scale(1.05);
+}
+
+/* Enhanced navigation link styling for creative header */
+.creative-header-layout .nav-link {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
+}
+
+.creative-header-layout .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-orange);
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.creative-header-layout .nav-link:hover::after {
+  width: 120%;
+}
+
 /* Hero title extra large styling */
 .hero-title-massive {
   font-family: var(--font-header);
