@@ -114,8 +114,41 @@
   p {
     font-family: var(--font-sans);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.7;
     letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  /* Enhanced spacing for contact information and lists */
+  .contact-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-item {
+    margin-bottom: 1.25rem;
+  }
+
+  .step-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Clear visual separation between headings and content */
+  h3 + p {
+    margin-top: 0.75rem;
+  }
+
+  h4 + p {
+    margin-top: 0.5rem;
+  }
+
+  /* Improved line-height for descriptive text */
+  .descriptive-text {
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
   }
 
   body {

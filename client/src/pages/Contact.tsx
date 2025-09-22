@@ -66,13 +66,13 @@ export default function Contact() {
           {/* Contact Information */}
           <div>
             <h2 className="text-3xl font-bold mb-8 text-orange-accent" data-testid="text-contact-info-title">CONTACT INFORMATION</h2>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4" data-testid="contact-email">
+            <div className="space-y-8">
+              <div className="flex items-center gap-4 contact-item" data-testid="contact-email">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
                   <Mail className="text-orange-accent w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Email</h3>
+                  <h3 className="font-semibold mb-2">Email</h3>
                   <a 
                     href="mailto:TEAM@ON3.STUDIO" 
                     className="text-primary hover:text-primary/80"
@@ -82,45 +82,45 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center gap-4" data-testid="contact-location">
+              <div className="flex items-center gap-4 contact-item" data-testid="contact-location">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
                   <MapPin className="text-orange-accent w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Location</h3>
-                  <p className="text-muted-foreground">325 Victoria St, Brunswick VIC 3056</p>
+                  <h3 className="font-semibold mb-2">Location</h3>
+                  <p className="text-muted-foreground descriptive-text">325 Victoria St, Brunswick VIC 3056</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12">
               <h3 className="text-xl font-bold mb-6">How It Works</h3>
-              <div className="space-y-4">
-                <div className="flex gap-4">
+              <div className="space-y-6">
+                <div className="flex gap-4 step-item">
                   <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-xs font-bold text-primary">1</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Plug-and-play</h4>
-                    <p className="text-muted-foreground">Book, land in Melbourne and get straight into it.</p>
+                    <h4 className="font-semibold mb-2">Plug-and-play</h4>
+                    <p className="text-muted-foreground descriptive-text">Book, land in Melbourne and get straight into it.</p>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 step-item">
                   <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-xs font-bold text-primary">2</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Create</h4>
-                    <p className="text-muted-foreground">Record, rehearse, shoot, create, podcast, or connect.</p>
+                    <h4 className="font-semibold mb-2">Create</h4>
+                    <p className="text-muted-foreground descriptive-text">Record, rehearse, shoot, create, podcast, or connect.</p>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 step-item">
                   <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-xs font-bold text-primary">3</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold">Connect</h4>
-                    <p className="text-muted-foreground">Tap into our community of creatives & artists.</p>
+                    <h4 className="font-semibold mb-2">Connect</h4>
+                    <p className="text-muted-foreground descriptive-text">Tap into our community of creatives & artists.</p>
                   </div>
                 </div>
               </div>
