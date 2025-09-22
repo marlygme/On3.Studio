@@ -1,52 +1,60 @@
 // Seed services API endpoint for Cloudflare Pages Functions
 
-const initialServices = [
-  {
-    id: crypto.randomUUID(),
-    name: "Recording Studio",
-    slug: "recording-studio",
-    description: "Professional recording space with industry-standard equipment including Neve 1073DPX, Tube-Tech CL 1B, SSL Sigma, U87, and Focal Trio6 monitors.",
-    duration: 120, // 2 hours
-    price: "150.00",
-    isActive: true,
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "Podcast Studio",
-    slug: "podcast-studio", 
-    description: "Multi-camera podcast setup with SM7B microphones, RØDECaster Pro, ATEM Mini Pro, and professional video recording capabilities.",
-    duration: 90, // 1.5 hours
-    price: "100.00",
-    isActive: true,
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "Photography Studio",
-    slug: "photography-studio",
-    description: "Spacious 3m x 7.5m cyclorama studio with professional lighting options and Epson projector for creative visual projects.",
-    duration: 180, // 3 hours
-    price: "200.00",
-    isActive: true,
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: crypto.randomUUID(),
-    name: "Creative Lounge",
-    slug: "creative-lounge",
-    description: "Open, relaxed space for rehearsals, writing, workshops, intimate events, and creative collaboration with PIONEER XDJ-XZ and full sound system.",
-    duration: 240, // 4 hours
-    price: "250.00",
-    isActive: true,
-    createdAt: new Date().toISOString()
-  }
-];
+// Helper function to generate initial services (called inside request handler)
+function generateInitialServices() {
+  const currentTimestamp = new Date().toISOString();
+  
+  return [
+    {
+      id: crypto.randomUUID(),
+      name: "Recording Studio",
+      slug: "recording-studio",
+      description: "Professional recording space with industry-standard equipment including Neve 1073DPX, Tube-Tech CL 1B, SSL Sigma, U87, and Focal Trio6 monitors.",
+      duration: 120, // 2 hours
+      price: "150.00",
+      isActive: true,
+      createdAt: currentTimestamp
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Podcast Studio",
+      slug: "podcast-studio", 
+      description: "Multi-camera podcast setup with SM7B microphones, RØDECaster Pro, ATEM Mini Pro, and professional video recording capabilities.",
+      duration: 90, // 1.5 hours
+      price: "100.00",
+      isActive: true,
+      createdAt: currentTimestamp
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Photography Studio",
+      slug: "photography-studio",
+      description: "Spacious 3m x 7.5m cyclorama studio with professional lighting options and Epson projector for creative visual projects.",
+      duration: 180, // 3 hours
+      price: "200.00",
+      isActive: true,
+      createdAt: currentTimestamp
+    },
+    {
+      id: crypto.randomUUID(),
+      name: "Creative Lounge",
+      slug: "creative-lounge",
+      description: "Open, relaxed space for rehearsals, writing, workshops, intimate events, and creative collaboration with PIONEER XDJ-XZ and full sound system.",
+      duration: 240, // 4 hours
+      price: "250.00",
+      isActive: true,
+      createdAt: currentTimestamp
+    }
+  ];
+}
 
 // POST /api/seed-services - Initialize services if empty
 export async function onRequestPost(context) {
   try {
     const { env } = context;
+    
+    // Generate initial services inside the request handler
+    const initialServices = generateInitialServices();
     
     // TODO: Replace with actual database queries
     // const existingServices = await env.DB.prepare("SELECT COUNT(*) as count FROM services").first();

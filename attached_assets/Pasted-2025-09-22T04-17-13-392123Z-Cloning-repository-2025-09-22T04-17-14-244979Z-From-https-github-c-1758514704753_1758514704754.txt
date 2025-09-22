@@ -1,0 +1,98 @@
+2025-09-22T04:17:13.392123Z	Cloning repository...
+2025-09-22T04:17:14.244979Z	From https://github.com/marlygme/On3.Studio
+2025-09-22T04:17:14.245446Z	 * branch            aee5d970e6ac7e3d958103a7b7144b3ad1ab20cb -> FETCH_HEAD
+2025-09-22T04:17:14.245818Z	
+2025-09-22T04:17:14.303676Z	HEAD is now at aee5d97 Improve visibility of logos by increasing their size by 50%
+2025-09-22T04:17:14.304331Z	
+2025-09-22T04:17:14.383278Z	
+2025-09-22T04:17:14.383773Z	Using v2 root directory strategy
+2025-09-22T04:17:14.408428Z	Success: Finished cloning repository files
+2025-09-22T04:17:16.117284Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-09-22T04:17:16.117782Z	
+2025-09-22T04:17:16.119128Z	Found wrangler.toml file. Reading build configuration...
+2025-09-22T04:17:16.125751Z	pages_build_output_dir: dist/public
+2025-09-22T04:17:16.125999Z	Build environment variables: (none found)
+2025-09-22T04:17:17.22448Z	Successfully read wrangler.toml file.
+2025-09-22T04:17:17.291684Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2025-09-22T04:17:17.292326Z	Installing project dependencies: npm clean-install --progress=false
+2025-09-22T04:17:21.354424Z	npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2025-09-22T04:17:21.47627Z	npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2025-09-22T04:17:25.803053Z	
+2025-09-22T04:17:25.803335Z	added 478 packages, and audited 479 packages in 8s
+2025-09-22T04:17:25.80349Z	
+2025-09-22T04:17:25.803735Z	64 packages are looking for funding
+2025-09-22T04:17:25.803831Z	  run `npm fund` for details
+2025-09-22T04:17:25.823874Z	
+2025-09-22T04:17:25.825078Z	8 vulnerabilities (3 low, 5 moderate)
+2025-09-22T04:17:25.825878Z	
+2025-09-22T04:17:25.826264Z	To address issues that do not require attention, run:
+2025-09-22T04:17:25.826378Z	  npm audit fix
+2025-09-22T04:17:25.826553Z	
+2025-09-22T04:17:25.826797Z	To address all issues (including breaking changes), run:
+2025-09-22T04:17:25.826905Z	  npm audit fix --force
+2025-09-22T04:17:25.827038Z	
+2025-09-22T04:17:25.827239Z	Run `npm audit` for details.
+2025-09-22T04:17:25.858337Z	Executing user command: node cloudflare-build.js
+2025-09-22T04:17:26.111355Z	🚀 Starting Cloudflare Pages build...
+2025-09-22T04:17:26.111748Z	🧹 Cleaning output directory...
+2025-09-22T04:17:26.111912Z	📦 Building frontend with Vite...
+2025-09-22T04:17:26.806478Z	[36mvite v5.4.20 [32mbuilding for production...[36m[39m
+2025-09-22T04:17:26.859365Z	transforming...
+2025-09-22T04:17:27.275039Z	Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+2025-09-22T04:17:27.275327Z	  npx update-browserslist-db@latest
+2025-09-22T04:17:27.275418Z	  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-09-22T04:17:31.615454Z	[32m✓[39m 2948 modules transformed.
+2025-09-22T04:17:31.970349Z	rendering chunks...
+2025-09-22T04:17:31.980455Z	computing gzip size...
+2025-09-22T04:17:31.999088Z	[2m../dist/public/[22m[32mindex.html                                 [39m[1m[2m  1.95 kB[22m[1m[22m[2m │ gzip:   0.74 kB[22m
+2025-09-22T04:17:31.999383Z	[2m../dist/public/[22m[2massets/[22m[32mon3logo_1758183733141-Dycc3Hux.png  [39m[1m[2m827.86 kB[22m[1m[22m
+2025-09-22T04:17:31.999504Z	[2m../dist/public/[22m[2massets/[22m[35mindex-CkHDiT-m.css                  [39m[1m[2m 60.68 kB[22m[1m[22m[2m │ gzip:  10.75 kB[22m
+2025-09-22T04:17:31.999573Z	[2m../dist/public/[22m[2massets/[22m[36mindex-rhzmYasR.js                   [39m[1m[33m634.73 kB[39m[22m[2m │ gzip: 190.77 kB[22m
+2025-09-22T04:17:31.999919Z	[32m✓ built in 5.17s[39m
+2025-09-22T04:17:32.000974Z	[33m
+2025-09-22T04:17:32.001157Z	(!) Some chunks are larger than 500 kB after minification. Consider:
+2025-09-22T04:17:32.001307Z	- Using dynamic import() to code-split the application
+2025-09-22T04:17:32.001435Z	- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-09-22T04:17:32.001567Z	- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2025-09-22T04:17:32.054763Z	✓ Frontend artifacts verified in dist/public
+2025-09-22T04:17:32.055011Z	🔍 Verifying deployment artifacts...
+2025-09-22T04:17:32.055144Z	✓ All critical deployment artifacts verified
+2025-09-22T04:17:32.055591Z	🔧 Copying routing configuration...
+2025-09-22T04:17:32.056134Z	⚙️ Build configuration ready...
+2025-09-22T04:17:32.056252Z	✓ wrangler.toml found - configuration ready for deployment
+2025-09-22T04:17:32.056596Z	✓ Functions directory found - API routes ready
+2025-09-22T04:17:32.056786Z	✅ Cloudflare Pages build completed successfully!
+2025-09-22T04:17:32.056919Z	
+2025-09-22T04:17:32.057052Z	📋 Deployment checklist:
+2025-09-22T04:17:32.057164Z	  ✓ Frontend built to dist/public/
+2025-09-22T04:17:32.057269Z	  ✓ Functions available in functions/ directory
+2025-09-22T04:17:32.057354Z	  ✓ Routing configuration (_routes.json) ready
+2025-09-22T04:17:32.057449Z	  ✓ Wrangler configuration (wrangler.toml) ready
+2025-09-22T04:17:32.057565Z	
+2025-09-22T04:17:32.057686Z	🌐 To deploy:
+2025-09-22T04:17:32.057793Z	  1. Connect your GitHub repository to Cloudflare Pages
+2025-09-22T04:17:32.057949Z	  2. Set build command: npm run build:cloudflare
+2025-09-22T04:17:32.058051Z	  3. Set build output directory: dist/public
+2025-09-22T04:17:32.058149Z	  4. Configure environment variables in Cloudflare Pages dashboard
+2025-09-22T04:17:32.058252Z	
+2025-09-22T04:17:32.074868Z	Finished
+2025-09-22T04:17:32.994074Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-09-22T04:17:32.994573Z	
+2025-09-22T04:17:32.995145Z	Found wrangler.toml file. Reading build configuration...
+2025-09-22T04:17:33.002435Z	pages_build_output_dir: dist/public
+2025-09-22T04:17:33.002632Z	Build environment variables: (none found)
+2025-09-22T04:17:34.116468Z	Successfully read wrangler.toml file.
+2025-09-22T04:17:34.117565Z	Found Functions directory at /functions. Uploading.
+2025-09-22T04:17:34.123933Z	 ⛅️ wrangler 3.101.0
+2025-09-22T04:17:34.124142Z	-------------------
+2025-09-22T04:17:35.085064Z	✨ Compiled Worker successfully
+2025-09-22T04:17:36.160677Z	Found _routes.json in output directory. Uploading.
+2025-09-22T04:17:36.17263Z	Validating asset output directory
+2025-09-22T04:17:38.885434Z	Deploying your site to Cloudflare's global network...
+2025-09-22T04:17:44.754899Z	Uploading... (4/4)
+2025-09-22T04:17:44.767285Z	✨ Success! Uploaded 0 files (4 already uploaded) (0.44 sec)
+2025-09-22T04:17:44.784139Z	
+2025-09-22T04:17:45.11555Z	✨ Upload complete!
+2025-09-22T04:17:48.827744Z	Success: Assets published!
+2025-09-22T04:17:50.449333Z	Error: Failed to publish your Function. Got error: Uncaught Error: Disallowed operation called within global scope. Asynchronous I/O (ex: fetch() or connect()), setting a timeout, and generating random values are not allowed within global scope. To fix this error, perform this operation within a handler. https://developers.cloudflare.com/workers/runtime-apis/handlers/
+  at functionsWorker-0.925793657544097.js:4379:16
