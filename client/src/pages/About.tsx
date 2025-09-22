@@ -4,7 +4,7 @@ export default function About() {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-8" data-testid="text-about-title">
-            <span className="text-primary">ABOUT</span> ON3 STUDIO
+            <span className="text-orange-accent">ABOUT</span> ON3 STUDIO
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A creative community built with integrity, passion, and real culture

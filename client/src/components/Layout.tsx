@@ -56,10 +56,10 @@ export default function Layout({ children }: LayoutProps) {
                     key={item.name} 
                     href={item.href} 
                     data-testid={`link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className={`transition-colors ${
+                    className={`nav-link transition-colors ${
                       location === item.href 
-                        ? 'text-primary' 
-                        : 'text-muted-foreground hover:text-primary'
+                        ? 'text-orange-accent' 
+                        : 'text-muted-foreground'
                     }`}
                   >
                     {item.name}
@@ -69,7 +69,7 @@ export default function Layout({ children }: LayoutProps) {
                 {/* The Space Dropdown */}
                 <div className="relative">
                   <button
-                    className="flex items-center space-x-1 text-muted-foreground hover:text-primary transition-colors"
+                    className="flex items-center space-x-1 text-muted-foreground nav-link transition-colors"
                     onClick={() => setSpaceDropdownOpen(!spaceDropdownOpen)}
                     data-testid="dropdown-the-space"
                   >
@@ -84,7 +84,7 @@ export default function Layout({ children }: LayoutProps) {
                           <Link
                             key={option.name}
                             href={option.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                            className="block px-4 py-2 text-sm text-muted-foreground cta-link hover:bg-accent/50 transition-colors"
                             data-testid={`dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
                             onClick={() => setSpaceDropdownOpen(false)}
                           >
@@ -99,7 +99,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
             <div className="flex items-center space-x-4">
               <Link href="/booking" data-testid="button-book-now">
-                <button className="bg-primary text-primary-foreground px-6 py-2 rounded-md font-semibold hover:bg-primary/90 transition-colors">
+                <button className="btn-orange-accent px-6 py-2 rounded-md font-semibold">
                   Book Now
                 </button>
               </Link>
@@ -127,10 +127,10 @@ export default function Layout({ children }: LayoutProps) {
                     key={item.name} 
                     href={item.href} 
                     data-testid={`mobile-link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className={`transition-colors ${
+                    className={`cta-link transition-colors ${
                       location === item.href 
                         ? 'text-primary' 
-                        : 'text-muted-foreground hover:text-primary'
+                        : 'text-muted-foreground'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -145,7 +145,7 @@ export default function Layout({ children }: LayoutProps) {
                     <Link
                       key={option.name}
                       href={option.href}
-                      className="block py-2 pl-4 text-muted-foreground hover:text-primary transition-colors"
+                      className="block py-2 pl-4 text-muted-foreground cta-link transition-colors"
                       data-testid={`mobile-dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -179,7 +179,7 @@ export default function Layout({ children }: LayoutProps) {
               </p>
               <a 
                 href="mailto:TEAM@ON3.STUDIO" 
-                className="text-primary hover:text-primary/80"
+                className="text-primary footer-link"
                 data-testid="link-email-footer"
               >
                 TEAM@ON3.STUDIO
@@ -194,7 +194,7 @@ export default function Layout({ children }: LayoutProps) {
                     key={item.name} 
                     href={item.href} 
                     data-testid={`footer-link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    className="block text-muted-foreground footer-link transition-colors"
                   >
                     {item.name}
                   </Link>

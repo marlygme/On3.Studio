@@ -55,7 +55,7 @@ export default function Contact() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-8" data-testid="text-contact-title">
-            <span className="text-primary">GET</span> IN TOUCH
+            <span className="text-orange-accent">GET</span> IN TOUCH
           </h1>
           <p className="text-xl text-muted-foreground">
             Ready to create something amazing? Let's talk.
@@ -65,11 +65,11 @@ export default function Contact() {
         <div className="professional-grid lg:grid-cols-2">
           {/* Contact Information */}
           <div>
-            <h2 className="text-3xl font-bold mb-8 text-accent" data-testid="text-contact-info-title">Contact Information</h2>
+            <h2 className="text-3xl font-bold mb-8 text-orange-accent" data-testid="text-contact-info-title">CONTACT INFORMATION</h2>
             <div className="space-y-6">
               <div className="flex items-center gap-4" data-testid="contact-email">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <Mail className="text-primary w-6 h-6" />
+                  <Mail className="text-orange-accent w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Email</h3>
@@ -84,7 +84,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-4" data-testid="contact-location">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <MapPin className="text-primary w-6 h-6" />
+                  <MapPin className="text-orange-accent w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Location</h3>
@@ -208,7 +208,7 @@ export default function Contact() {
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full submit-btn-orange"
                   disabled={contactMutation.isPending}
                   data-testid="button-send-message"
                 >

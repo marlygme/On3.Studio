@@ -1,0 +1,43 @@
+1. Make the Typography More Expressive
+
+This is the most important change. The current bold font is clean but lacks personality. The goal is to make the headings a core design element, like on marlyg.me.
+
+
+
+Choose a Character Font: Change the main heading font ("ON3 STUDIO," "About," "Services") to a more distinctive sans-serif. Look for fonts on Google Fonts or Adobe Fonts that are either very condensed, wide, or have unique letterforms.
+
+Play with Scale and Spacing: Make the main "ON3 STUDIO" title in the hero section significantly larger. Decrease the letter spacing slightly (letter-spacing: -2px; or similar) to give it a tighter, more custom look.
+
+Mix Cases: Try setting section headers like "ABOUT" and "SERVICES" in all caps to differentiate them from the more conversational hero text.
+
+2. Add Dynamic Animations and Micro-interactions
+
+Creative websites feel alive. Simple animations can transform a static page into an engaging experience.
+
+
+
+On-Scroll Animations: Have sections gently fade in or slide up as the user scrolls down the page. This adds a premium, polished feel.
+
+Hover Effects:
+
+Navigation: When hovering over a menu link, have an underline slide in from the left instead of just appearing.
+
+Services Grid: When a user hovers over a service box, make the arrow icon animate (e.g., move slightly to the right) or have the title change color.
+
+Buttons: Make the "Submit" button subtly change brightness or scale up slightly on hover.
+
+3. Introduce Asymmetry and Overlap
+
+Corporate sites are often perfectly centered and symmetrical. Breaking this grid subtly adds a lot of visual interest.
+
+
+
+Offset Section Content: Instead of centering the "About" section, try aligning the heading to the left and the paragraph text to the right, creating a dynamic balance.
+
+Slight Overlap: In the "About" or "Contact" section, you could place a high-quality, moody image that sits slightly behind the main text box, peeking out from behind. This is a controlled way to use the layering seen on marlyg.me.
+
+
+
+4. Use Imagery and a Single Accent Color
+
+Introduce an Accent Color: While keeping the black-and-white base, add a single, bold accent color (like the warm orange from your original PDF). Use this color sparingly for key elements like the "Submit" button, link hover effects, or maybe the hero heading, to draw the user's eye.
