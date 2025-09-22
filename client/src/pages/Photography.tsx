@@ -6,149 +6,177 @@ export default function Photography() {
   const features = [
     {
       name: "3m x 7.5m Cyclorama",
-      description: "Spacious curved backdrop for seamless photography",
-      icon: Square
+      description: "Spacious curved backdrop for seamless photography and infinite horizon effects",
+      icon: Square,
+      detail: "Professional curved wall construction eliminates harsh corners and creates perfect infinity backgrounds for portraits, products, and creative projects."
     },
     {
-      name: "Professional Lighting",
-      description: "Complete lighting kit with various options",
-      icon: Lightbulb
+      name: "Professional Lighting System",
+      description: "Complete lighting kit with strobes, continuous lights, and modifiers",
+      icon: Lightbulb,
+      detail: "High-end Profoto and Godox lighting equipment with softboxes, beauty dishes, and reflectors to achieve any lighting style you envision."
     },
     {
       name: "Epson Projector",
-      description: "High-quality projection for creative backgrounds",
-      icon: Monitor
+      description: "High-resolution projection system for creative backgrounds and effects",
+      icon: Monitor,
+      detail: "4K projection capabilities allow for dynamic backgrounds, mood lighting, and creative visual effects that transform your photos."
     },
     {
       name: "Flexible Setup",
-      description: "Adaptable space for any photography need",
-      icon: Camera
+      description: "Adaptable space configuration for any photography requirement",
+      icon: Camera,
+      detail: "Modular lighting setup and moveable equipment allow for quick reconfiguration between portrait, product, fashion, and commercial shoots."
+    }
+  ];
+
+  const photographyTypes = [
+    {
+      title: "Portrait Sessions",
+      description: "Professional headshots and portrait photography",
+      details: ["Corporate headshots", "Personal branding", "Actor portfolios", "Creative portraits"]
+    },
+    {
+      title: "Product Photography",
+      description: "Clean, professional product shots with flexible lighting",
+      details: ["E-commerce products", "Catalog photography", "Fashion accessories", "Technical products"]
+    },
+    {
+      title: "Creative Projects",
+      description: "Fashion, art, and experimental photography",
+      details: ["Fashion editorials", "Art photography", "Conceptual shoots", "Commercial campaigns"]
+    }
+  ];
+
+  const specifications = [
+    {
+      title: "Cyclorama Dimensions",
+      detail: "3 meters wide × 7.5 meters long curved backdrop"
+    },
+    {
+      title: "Lighting Power",
+      detail: "Up to 2400W of flash power with HSS capability"
+    },
+    {
+      title: "Projection Resolution",
+      detail: "4K UHD projection with 3000 lumens brightness"
+    },
+    {
+      title: "Color Temperature",
+      detail: "Adjustable from 2700K-6500K for any lighting scenario"
     }
   ];
 
   return (
-    <div className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8" data-testid="text-photography-title">
-            <span className="text-primary">PHOTOGRAPHY</span> STUDIO
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Spacious cyclorama studio with professional lighting for all your creative visual projects
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
-              <p className="text-muted-foreground mt-2">Photography studio image placeholder</p>
+    <div className="split-screen-layout">
+      {/* Sticky Image Side */}
+      <div className="split-screen-image">
+        <div className="sticky-image-container">
+          <div className="studio-image-placeholder">
+            <div className="image-overlay">
+              <h1 className="split-screen-title" data-testid="text-photography-title">
+                <span className="text-orange-accent">PHOTOGRAPHY</span>
+                <span className="text-primary block">STUDIO</span>
+              </h1>
+              <p className="split-screen-subtitle">
+                Spacious cyclorama studio with professional lighting for all your creative visual projects
+              </p>
+            </div>
+            <div className="image-placeholder-content">
+              <p className="text-2xl font-bold text-primary">PHOTOGRAPHY STUDIO IMAGE</p>
+              <p className="text-muted-foreground mt-2">Professional photography environment</p>
             </div>
           </div>
-          
-          <div>
-            <h2 className="text-3xl font-bold mb-8 text-accent" data-testid="text-photography-features-title">Studio Features</h2>
-            <div className="space-y-6">
-              {features.map((item, index) => {
-                const IconComponent = item.icon;
-                return (
-                  <div key={index} className="flex items-start gap-4" data-testid={`photography-feature-${index}`}>
-                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="text-primary w-6 h-6" />
+        </div>
+      </div>
+
+      {/* Scrollable Content Side */}
+      <div className="split-screen-content">
+        <div className="content-section">
+          <div className="section-intro">
+            <h2 className="section-title text-orange-accent" data-testid="text-photography-features-title">
+              STUDIO FEATURES
+            </h2>
+            <p className="section-description">
+              Our photography studio combines cutting-edge technology with professional-grade 
+              equipment to create the perfect environment for any visual project. From intimate 
+              portraits to large-scale commercial shoots.
+            </p>
+          </div>
+
+          <div className="equipment-grid">
+            {features.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div key={index} className="equipment-card" data-testid={`photography-feature-${index}`}>
+                  <div className="equipment-header">
+                    <div className="equipment-icon">
+                      <IconComponent className="text-orange-accent w-6 h-6" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">{item.name}</h3>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
+                    <h3 className="equipment-name">{item.name}</h3>
                   </div>
-                );
-              })}
-            </div>
+                  <p className="equipment-description">{item.description}</p>
+                  <p className="equipment-detail">{item.detail}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Photography Types */}
-        <div className="bg-card/30 rounded-xl p-12 mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-accent">Perfect For</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
-                <Camera className="text-primary w-8 h-8" />
+        <div className="content-section">
+          <h2 className="section-title text-orange-accent">PERFECT FOR</h2>
+          <div className="features-grid">
+            {photographyTypes.map((type, index) => (
+              <div key={index} className="feature-card">
+                <div className="feature-header">
+                  <div className="feature-icon">
+                    <Camera className="text-orange-accent w-8 h-8" />
+                  </div>
+                  <h3 className="feature-title">{type.title}</h3>
+                </div>
+                <p className="feature-description">{type.description}</p>
+                <ul className="feature-details">
+                  {type.details.map((detail, idx) => (
+                    <li key={idx} className="feature-detail-item">
+                      <div className="detail-bullet"></div>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-semibold">Portrait Sessions</h3>
-              <p className="text-muted-foreground">Professional headshots and portrait photography</p>
-            </div>
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
-                <Monitor className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold">Product Photography</h3>
-              <p className="text-muted-foreground">Clean, professional product shots with flexible lighting</p>
-            </div>
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
-                <Lightbulb className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold">Creative Projects</h3>
-              <p className="text-muted-foreground">Fashion, art, and experimental photography</p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Technical Specifications */}
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-2xl font-bold mb-6 text-accent">Technical Specifications</h2>
-            <div className="space-y-4">
-              <div className="bg-card rounded-lg p-4">
-                <h3 className="font-semibold mb-2">Cyclorama Dimensions</h3>
-                <p className="text-muted-foreground">3 meters wide × 7.5 meters long curved backdrop</p>
+        <div className="content-section">
+          <h2 className="section-title text-orange-accent">TECHNICAL SPECIFICATIONS</h2>
+          <div className="tech-specs-grid">
+            {specifications.map((spec, index) => (
+              <div key={index} className="tech-spec-card">
+                <h3 className="tech-spec-title">{spec.title}</h3>
+                <p className="tech-spec-detail">{spec.detail}</p>
               </div>
-              <div className="bg-card rounded-lg p-4">
-                <h3 className="font-semibold mb-2">Lighting Options</h3>
-                <p className="text-muted-foreground">Professional strobes, continuous lighting, and softboxes</p>
-              </div>
-              <div className="bg-card rounded-lg p-4">
-                <h3 className="font-semibold mb-2">Projection Capability</h3>
-                <p className="text-muted-foreground">High-resolution Epson projector for creative backgrounds</p>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <h2 className="text-2xl font-bold mb-6 text-accent">What's Included</h2>
-            <ul className="space-y-3">
-              {[
-                "Full cyclorama setup",
-                "Professional lighting kit",
-                "Light stands and modifiers",
-                "Color gels and filters",
-                "Backdrop projection system",
-                "Equipment technical support",
-                "Flexible booking hours"
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            ))}
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <h2 className="text-2xl font-bold mb-4">Ready for Your Shoot?</h2>
-          <p className="text-muted-foreground mb-8">Book your photography session and create stunning visuals</p>
-          <Link href="/contact">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground px-8 py-4 text-lg hover:bg-primary/90"
-              data-testid="button-book-photography"
-            >
-              Book Photography Session
-            </Button>
-          </Link>
+        <div className="content-section">
+          <div className="cta-section">
+            <h2 className="cta-title">Ready for Your Shoot?</h2>
+            <p className="cta-description">
+              Book your photography session and create stunning visuals in our professionally 
+              equipped cyclorama studio with infinite creative possibilities.
+            </p>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="btn-orange-accent px-8 py-4 text-lg"
+                data-testid="button-book-photography"
+              >
+                Book Photography Session
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
