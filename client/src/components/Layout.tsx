@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
                 <img 
                   src={on3Logo} 
                   alt="ON3 STUDIO Logo" 
-                  className="h-8 w-auto cursor-pointer"
+                  className="h-12 w-auto cursor-pointer"
                 />
               </Link>
               <div className="hidden md:flex space-x-6 items-center">
@@ -161,7 +161,7 @@ export default function Layout({ children }: LayoutProps) {
               <img 
                 src={on3Logo} 
                 alt="ON3 STUDIO Logo" 
-                className="h-8 w-auto mb-4"
+                className="h-12 w-auto mb-4"
               />
               <p className="text-muted-foreground mb-6">
                 A creative lounge in Melbourne. A home away from home for artists.

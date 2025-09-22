@@ -1,0 +1,26 @@
+name = "on3-studio"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "dist/public"
+
+[env.production]
+# Add environment variables for production
+# DATABASE_URL will be configured in Cloudflare Pages dashboard
+
+[env.preview]
+# Add environment variables for preview deployments
+
+# Database bindings (optional - for D1)
+# [[env.production.d1_databases]]
+# binding = "DB"
+# database_name = "on3-studio-db"
+# database_id = "your-d1-database-id"
+
+# KV bindings (optional - for caching)
+# [[env.production.kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-namespace-id"
+
+# R2 bindings (optional - for file storage)
+# [[env.production.r2_buckets]]
+# binding = "BUCKET"
+# bucket_name = "on3-studio-assets"

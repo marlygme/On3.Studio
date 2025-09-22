@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "description": "Routing configuration for ON3 Studio website",
+  "include": [
+    "/api/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/_app/*",
+    "/favicon.ico",
+    "/*.css",
+    "/*.js",
+    "/*.json",
+    "/*.ico",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.gif",
+    "/*.svg",
+    "/*.webp",
+    "/*.woff",
+    "/*.woff2",
+    "/*.ttf",
+    "/*.eot",
+    "/manifest.json"
+  ]
+}
