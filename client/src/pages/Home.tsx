@@ -16,8 +16,22 @@ export default function Home() {
   const prefersReducedMotion = useReducedMotion();
   const motionVariants = createMotionVariants(prefersReducedMotion);
   const [isSpotlightActive, setIsSpotlightActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const rafRef = useRef<number>();
+  const autoMoveRef = useRef<number>();
+
+  // Detect if mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile('ontouchstart' in window && window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // CSS-driven spotlight with no React re-renders
   useEffect(() => {
@@ -31,6 +45,39 @@ export default function Home() {
         heroRef.current.style.setProperty('--mouse-x', `${relativeX}px`);
         heroRef.current.style.setProperty('--mouse-y', `${relativeY}px`);
       }
+    };
+    
+    // Auto-movement for mobile devices
+    const startAutoMovement = () => {
+      if (!isMobile || !heroRef.current) return;
+      
+      const rect = heroRef.current.getBoundingClientRect();
+      let angle = 0;
+      
+      const animate = () => {
+        if (heroRef.current) {
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const radiusX = rect.width * 0.3;
+          const radiusY = rect.height * 0.3;
+          
+          const x = centerX + Math.cos(angle) * radiusX;
+          const y = centerY + Math.sin(angle * 0.7) * radiusY; // Different frequency for more organic movement
+          
+          heroRef.current.style.setProperty('--mouse-x', `${x}px`);
+          heroRef.current.style.setProperty('--mouse-y', `${y}px`);
+          
+          angle += 0.02; // Slow, smooth movement
+          autoMoveRef.current = requestAnimationFrame(animate);
+        }
+      };
+      
+      // Start auto-movement with initial delay
+      setTimeout(() => {
+        if (isMobile) {
+          animate();
+        }
+      }, 1000);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
@@ -67,12 +114,6 @@ export default function Home() {
 
     const heroElement = heroRef.current;
     if (heroElement) {
-      // Unified pointer events (handles mouse, touch, pen)
-      heroElement.addEventListener('pointermove', handlePointerMove, { passive: true });
-      heroElement.addEventListener('pointerenter', handlePointerEnter);
-      heroElement.addEventListener('pointerleave', handlePointerLeave);
-      heroElement.addEventListener('pointerdown', handlePointerDown);
-      
       // Set initial position (center of viewport)
       const rect = heroElement.getBoundingClientRect();
       const centerX = rect.width / 2;
@@ -80,14 +121,23 @@ export default function Home() {
       heroElement.style.setProperty('--mouse-x', `${centerX}px`);
       heroElement.style.setProperty('--mouse-y', `${centerY}px`);
       
-      // Auto-activate on mobile
-      if ('ontouchstart' in window) {
+      if (isMobile) {
+        // Mobile: Auto-activate and start movement
         heroElement.classList.add('spotlight-mobile');
+        setIsSpotlightActive(true);
+        heroElement.classList.add('spotlight-active');
+        startAutoMovement();
+      } else {
+        // Desktop: Use pointer events for manual control
+        heroElement.addEventListener('pointermove', handlePointerMove, { passive: true });
+        heroElement.addEventListener('pointerenter', handlePointerEnter);
+        heroElement.addEventListener('pointerleave', handlePointerLeave);
+        heroElement.addEventListener('pointerdown', handlePointerDown);
       }
     }
 
     return () => {
-      if (heroElement) {
+      if (heroElement && !isMobile) {
         heroElement.removeEventListener('pointermove', handlePointerMove);
         heroElement.removeEventListener('pointerenter', handlePointerEnter);
         heroElement.removeEventListener('pointerleave', handlePointerLeave);
@@ -96,8 +146,11 @@ export default function Home() {
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
       }
+      if (autoMoveRef.current) {
+        cancelAnimationFrame(autoMoveRef.current);
+      }
     };
-  }, []);
+  }, [isMobile]);
 
   const backgroundImages = [
     { src: recordingStudioImg, alt: "Recording Studio" },
