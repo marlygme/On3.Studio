@@ -1,0 +1,45 @@
+This is a final refinement pass to transform the website from a structured layout into the creative and abstract "Interactive Community Spotlight" concept we've discussed. The goal is to fix critical layout and spacing issues while implementing a bold, artistic vision inspired by marlyg.me.
+
+1. Critical Header Redesign:
+
+The text logo ("ON3 STUDIO") must be the central, dominant element of the header.
+
+Center the logo perfectly in the middle of the navigation bar.
+
+Place the navigation links ("About," "Spaces," etc.) to the left of the central logo and the "Book Now" button to the right.
+
+Crucially, all elements in the header must be vertically aligned. Adjust the size, padding, and margins of the navigation links and the "Book Now" button to ensure they are perfectly even with the new, larger, centered logo. If the button needs to be made taller to match the logo's height, do so.
+
+2. Core Concept Implementation (The "Spotlight" Effect):
+
+Homepage Hero: The initial view should be a dark screen dominated by the massive, expressive "ON3 STUDIO" title, just like the marlyg.me reference.
+
+Interactive Cursor: Implement a custom cursor that acts as a large, soft "spotlight."
+
+Background Collage: The background behind the hero text should be a layered collage of photos and silent videos from the studio community. This content should only be revealed as the user moves the "spotlight" cursor across the screen.
+
+3. Typography and Spacing Fixes:
+
+Text is still too close in some sections. Please conduct a site-wide review of vertical spacing.
+
+Increase the line-height and margin for text blocks, especially in the "How It Works" list and the "Contact" section, to give the content more room to breathe and improve readability.
+
+Further Creative Recommendations
+The current site has a solid structure, but it's still contained within a very rigid, blocky system. To get the abstract and creative feel of marlyg.me and changebycole.com, you need to intentionally break this structure.
+
+Here are some new recommendations:
+
+1. Break the Grid with Overlapping Elements ("Content Bleed")
+The biggest difference between your site and the inspirations is that they don't confine every element to a neat rectangle.
+
+How to implement: In the "About" section, allow the main block of text to sit in a column, but have a large, artistic, black-and-white photo partially overlap it, "bleeding" into the text area. In the services sections, let the title text (e.g., "Recording Studio") be much larger and sit slightly outside the boundary of its background container. This creates depth and a much more dynamic, collage-like feel.
+
+2. Introduce Textural Layers and Analogue Feel
+The flat black background feels very digital and clean. Your inspirations feel more textured and raw.
+
+How to implement: Add a subtle, looping video background of film grain or static over the entire site. It should be barely noticeable but will give the dark background a sense of texture and life. Introduce new layers, like semi-transparent gradient shapes or blurred light effects behind certain text sections, to break up the flat space.
+
+3. Reimagine the Footer as a Bold Design Statement
+Currently, the contact/footer section is a simple list. This is a missed opportunity for a bold final impression.
+
+How to implement: Remove the conventional footer. Instead, make the final section of the page a full-screen, minimalist statement. Have the email address, "TEAM@ON3.STUDIO," appear in a massive font that fills the screen. When the user hovers over it, the rest of the contact information and a form could fade into view. This turns a utility into a memorable piece of design.

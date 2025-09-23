@@ -1042,3 +1042,102 @@ html {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
   outline: none;
 }
+
+/* Header height variable for perfect alignment */
+:root {
+  --header-height: 5rem;
+}
+
+/* New Header Spotlight Layout with CSS Grid */
+.header-spotlight-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--header-height);
+  position: relative;
+}
+
+.header-text-logo-container {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.header-text-logo {
+  font-family: var(--font-header);
+  font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(242, 210, 84, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid transparent;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.header-text-logo:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-orange);
+  box-shadow: 0 8px 32px rgba(242, 210, 84, 0.3);
+}
+
+.header-nav-container {
+  justify-self: start;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-link {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  transition: all 0.3s ease;
+}
+
+.header-nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-orange);
+  transition: width 0.3s ease;
+  transform: translateY(50%);
+}
+
+.header-nav-link:hover::before {
+  width: 100%;
+}
+
+.header-button-container {
+  justify-self: end;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.header-book-button {
+  height: var(--header-height);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.header-book-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(242, 210, 84, 0.4);
+}
