@@ -4,10 +4,107 @@ import { Card } from "@/components/ui/card";
 import { Mic, Video, Camera, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { useReducedMotion, createMotionVariants } from "@/hooks/use-reduced-motion";
+import { useState, useEffect, useRef } from "react";
+
+// Import studio images for background collage
+import recordingStudioImg from "@assets/generated_images/Recording_studio_hero_background_1aff66b6.png";
+import podcastStudioImg from "@assets/generated_images/Podcast_studio_background_image_a5f50052.png";
+import photographyStudioImg from "@assets/generated_images/Photography_studio_space_image_8dc33136.png";
+import creativeLoungeImg from "@assets/generated_images/Creative_lounge_atmosphere_image_89c2e339.png";
 
 export default function Home() {
   const prefersReducedMotion = useReducedMotion();
   const motionVariants = createMotionVariants(prefersReducedMotion);
+  const [isSpotlightActive, setIsSpotlightActive] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const rafRef = useRef<number>();
+
+  // CSS-driven spotlight with no React re-renders
+  useEffect(() => {
+    const updatePosition = (x: number, y: number) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const relativeX = x - rect.left;
+        const relativeY = y - rect.top;
+        
+        // Only update CSS custom properties - no React state
+        heroRef.current.style.setProperty('--mouse-x', `${relativeX}px`);
+        heroRef.current.style.setProperty('--mouse-y', `${relativeY}px`);
+      }
+    };
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      rafRef.current = requestAnimationFrame(() => {
+        updatePosition(e.clientX, e.clientY);
+      });
+    };
+
+    const handlePointerEnter = () => {
+      setIsSpotlightActive(true);
+      if (heroRef.current) {
+        heroRef.current.classList.add('spotlight-active');
+      }
+    };
+    
+    const handlePointerLeave = () => {
+      setIsSpotlightActive(false);
+      if (heroRef.current) {
+        heroRef.current.classList.remove('spotlight-active');
+      }
+    };
+
+    const handlePointerDown = (e: PointerEvent) => {
+      // Activate immediately on any pointer interaction
+      setIsSpotlightActive(true);
+      if (heroRef.current) {
+        heroRef.current.classList.add('spotlight-active');
+      }
+      updatePosition(e.clientX, e.clientY);
+    };
+
+    const heroElement = heroRef.current;
+    if (heroElement) {
+      // Unified pointer events (handles mouse, touch, pen)
+      heroElement.addEventListener('pointermove', handlePointerMove, { passive: true });
+      heroElement.addEventListener('pointerenter', handlePointerEnter);
+      heroElement.addEventListener('pointerleave', handlePointerLeave);
+      heroElement.addEventListener('pointerdown', handlePointerDown);
+      
+      // Set initial position (center of viewport)
+      const rect = heroElement.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      heroElement.style.setProperty('--mouse-x', `${centerX}px`);
+      heroElement.style.setProperty('--mouse-y', `${centerY}px`);
+      
+      // Auto-activate on mobile
+      if ('ontouchstart' in window) {
+        heroElement.classList.add('spotlight-mobile');
+      }
+    }
+
+    return () => {
+      if (heroElement) {
+        heroElement.removeEventListener('pointermove', handlePointerMove);
+        heroElement.removeEventListener('pointerenter', handlePointerEnter);
+        heroElement.removeEventListener('pointerleave', handlePointerLeave);
+        heroElement.removeEventListener('pointerdown', handlePointerDown);
+      }
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, []);
+
+  const backgroundImages = [
+    { src: recordingStudioImg, alt: "Recording Studio" },
+    { src: podcastStudioImg, alt: "Podcast Studio" },
+    { src: photographyStudioImg, alt: "Photography Studio" },
+    { src: creativeLoungeImg, alt: "Creative Lounge" }
+  ];
   
   const services = [
     {
@@ -42,50 +139,63 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background">
-          <div className="w-full h-full flex items-center justify-center bg-card/20">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary opacity-60">IMAGE HERE</p>
-              <p className="text-muted-foreground mt-2 opacity-60">Hero background image placeholder</p>
-            </div>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
+      {/* Interactive Community Spotlight Hero Section */}
+      <section 
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden spotlight-hero"
+        style={{ cursor: isSpotlightActive ? 'none' : 'default' }}
+      >
+        {/* Background Collage Layer */}
+        <div className="absolute inset-0 spotlight-background">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute bg-cover bg-center spotlight-image spotlight-image-${index + 1}`}
+              style={{ backgroundImage: `url(${image.src})` }}
+            />
+          ))}
         </div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/95"></div>
+
+        {/* Custom Spotlight Cursor */}
+        <div className="absolute pointer-events-none spotlight-cursor z-20" />
         
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        {/* Massive Central Title */}
+        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
           <motion.h1 
             initial={motionVariants.fadeIn.initial}
             animate={motionVariants.fadeIn.animate}
             transition={{ ...motionVariants.fadeIn.transition, delay: prefersReducedMotion ? 0 : 0.3 }}
-            className="hero-title-massive mb-8 hero-text-shadow" 
+            className="spotlight-title mb-16" 
             data-testid="text-hero-title"
           >
-            <span className="text-orange-accent">ON3 STUDIO</span>
+            <span className="text-white">ON3</span>
             <br />
-            <span className="text-primary text-4xl md:text-6xl" style={{fontFamily: 'var(--font-condensed)', letterSpacing: '-2px'}}>IS A CREATIVE LOUNGE IN MELBOURNE</span>
+            <span className="text-orange-accent">STUDIO</span>
           </motion.h1>
-          <motion.p 
-            initial={motionVariants.fadeIn.initial}
-            animate={motionVariants.fadeIn.animate}
-            transition={{ ...motionVariants.fadeIn.transition, delay: prefersReducedMotion ? 0 : 0.5 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed hero-text-shadow max-w-3xl mx-auto" 
-            data-testid="text-hero-description"
+          
+          {/* Subtitle appears on hover/interaction */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isSpotlightActive ? 1 : 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            A home away from home for artists, built for music, connection and culture. 
-            A community and space to plug in, create, and feel free.
-          </motion.p>
-          <motion.div 
-            initial={motionVariants.fadeIn.initial}
-            animate={motionVariants.fadeIn.animate}
-            transition={{ ...motionVariants.fadeIn.transition, delay: prefersReducedMotion ? 0 : 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.div
-              whileHover={motionVariants.buttonHover}
-              whileTap={motionVariants.buttonTap}
-              transition={{ type: "spring", stiffness: 300 }}
+            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-light" 
+               data-testid="text-hero-description">
+              A home away from home for artists, built for music, connection and culture. 
+              A community and space to plug in, create, and feel free.
+            </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: isSpotlightActive ? 1 : 0.6, 
+                y: isSpotlightActive ? 0 : 10 
+              }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button 
                 size="lg" 
@@ -98,27 +208,34 @@ export default function Home() {
                   }
                 }}
               >
-                Explore Our Spaces
+                Discover the Space
               </Button>
-            </motion.div>
-            <Link href="/booking">
-              <motion.div
-                whileHover={motionVariants.buttonHover}
-                whileTap={motionVariants.buttonTap}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
+              <Link href="/booking">
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="border-primary text-primary px-8 py-4 text-lg hover:bg-primary/10"
+                  className="border-white/30 text-white px-8 py-4 text-lg hover:bg-white/10 hover:border-orange-accent"
                   data-testid="button-book-session"
                 >
                   Book a Session
                 </Button>
-              </motion.div>
-            </Link>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-sm"
+        >
+          <div className="flex flex-col items-center">
+            <span className="mb-2 font-light tracking-wide">MOVE TO EXPLORE</span>
+            <div className="w-0.5 h-8 bg-white/40 animate-pulse"></div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Services Overview - The Space */}

@@ -1141,3 +1141,143 @@ html {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(242, 210, 84, 0.4);
 }
+
+/* Interactive Community Spotlight Homepage */
+.spotlight-hero {
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-background {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.spotlight-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  clip-path: circle(150px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+  transition: opacity 0.3s ease;
+  filter: brightness(0.8) contrast(1.1);
+  will-change: clip-path;
+  backface-visibility: hidden;
+}
+
+/* Show images when spotlight is active */
+.spotlight-active .spotlight-image {
+  opacity: 0.9;
+}
+
+/* Mobile always-on spotlight */
+.spotlight-mobile .spotlight-image {
+  opacity: 0.8;
+}
+
+.spotlight-image-1 {
+  background-position: center top;
+}
+
+.spotlight-image-2 {
+  background-position: left center;
+}
+
+.spotlight-image-3 {
+  background-position: right center;
+}
+
+.spotlight-image-4 {
+  background-position: center bottom;
+}
+
+.spotlight-cursor {
+  width: 300px;
+  height: 300px;
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(242, 210, 84, 0.1) 0%,
+    rgba(242, 210, 84, 0.05) 50%,
+    transparent 70%
+  );
+  box-shadow: 
+    0 0 60px rgba(242, 210, 84, 0.3),
+    inset 0 0 60px rgba(242, 210, 84, 0.1);
+  animation: spotlight-pulse 2s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-active .spotlight-cursor {
+  opacity: 0.8;
+}
+
+@keyframes spotlight-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+.spotlight-title {
+  font-family: var(--font-header);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  text-align: center;
+  margin: 0;
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark overlay with proper z-index */
+.spotlight-hero .bg-black\/95 {
+  z-index: 0;
+}
+
+/* Images above overlay */
+.spotlight-background {
+  z-index: 10;
+}
+
+/* Mobile optimizations for spotlight */
+@media (max-width: 768px) {
+  .spotlight-cursor {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .spotlight-image {
+    clip-path: circle(120px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+  }
+  
+  .spotlight-title {
+    font-size: clamp(3rem, 12vw, 6rem);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-cursor {
+    animation: none;
+  }
+  
+  .spotlight-image {
+    transition: opacity 0.3s ease;
+  }
+}
