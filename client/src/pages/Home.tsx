@@ -47,27 +47,28 @@ export default function Home() {
       }
     };
     
-    // Auto-movement for mobile devices
+    // Auto-movement for mobile devices - much smoother
     const startAutoMovement = () => {
       if (!isMobile || !heroRef.current) return;
       
       const rect = heroRef.current.getBoundingClientRect();
-      let angle = 0;
+      let time = 0;
       
       const animate = () => {
         if (heroRef.current) {
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          const radiusX = rect.width * 0.3;
-          const radiusY = rect.height * 0.3;
+          const radiusX = rect.width * 0.25;
+          const radiusY = rect.height * 0.25;
           
-          const x = centerX + Math.cos(angle) * radiusX;
-          const y = centerY + Math.sin(angle * 0.7) * radiusY; // Different frequency for more organic movement
+          // Much smoother movement with time-based animation
+          const x = centerX + Math.cos(time * 0.0008) * radiusX;
+          const y = centerY + Math.sin(time * 0.0006) * radiusY; // Different frequency for organic movement
           
           heroRef.current.style.setProperty('--mouse-x', `${x}px`);
           heroRef.current.style.setProperty('--mouse-y', `${y}px`);
           
-          angle += 0.02; // Slow, smooth movement
+          time += 16; // Increment by frame time for consistent speed
           autoMoveRef.current = requestAnimationFrame(animate);
         }
       };
@@ -77,7 +78,7 @@ export default function Home() {
         if (isMobile) {
           animate();
         }
-      }, 1000);
+      }, 500);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
