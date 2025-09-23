@@ -56,9 +56,9 @@ export default function Music() {
       {/* Sticky Image Side */}
       <div className="split-screen-image">
         <div className="sticky-image-container">
-          <div className="studio-image-placeholder">
+          <div className="studio-image-placeholder image-bleed-into-text">
             <div className="image-overlay">
-              <h1 className="split-screen-title" data-testid="text-music-title">
+              <h1 className="split-screen-title title-break-out" data-testid="text-music-title">
                 <span className="text-orange-accent">MUSIC</span>
                 <span className="text-primary block">RECORDING STUDIO</span>
               </h1>
@@ -70,15 +70,18 @@ export default function Music() {
               <p className="text-2xl font-bold text-primary">RECORDING STUDIO IMAGE</p>
               <p className="text-muted-foreground mt-2">Professional recording environment</p>
             </div>
+            {/* Dynamic floating elements */}
+            <div className="floating-accent-element w-20 h-20 top-1/4 right-8"></div>
+            <div className="floating-accent-element w-12 h-12 bottom-1/3 left-12"></div>
           </div>
         </div>
       </div>
 
       {/* Scrollable Content Side */}
-      <div className="split-screen-content">
-        <div className="content-section">
-          <div className="section-intro">
-            <h2 className="section-title text-orange-accent" data-testid="text-equipment-title">
+      <div className="split-screen-content content-bleed-left">
+        <div className="content-section dynamic-overlap-container">
+          <div className="section-intro text-overlap-image">
+            <h2 className="section-title text-orange-accent title-break-out" data-testid="text-equipment-title">
               PROFESSIONAL EQUIPMENT
             </h2>
             <p className="section-description">
@@ -86,6 +89,8 @@ export default function Music() {
               and proven track record in professional music production.
             </p>
           </div>
+          {/* Add floating elements */}
+          <div className="floating-accent-element w-6 h-6 top-12 right-4"></div>
 
           <div className="equipment-grid">
             {equipment.map((item, index) => {

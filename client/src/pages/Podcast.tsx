@@ -62,9 +62,9 @@ export default function Podcast() {
       {/* Sticky Image Side */}
       <div className="split-screen-image">
         <div className="sticky-image-container">
-          <div className="studio-image-placeholder">
+          <div className="studio-image-placeholder image-bleed-into-text">
             <div className="image-overlay">
-              <h1 className="split-screen-title" data-testid="text-podcast-title">
+              <h1 className="split-screen-title title-break-out" data-testid="text-podcast-title">
                 <span className="text-orange-accent">PODCAST</span>
                 <span className="text-primary block">STUDIO</span>
               </h1>
@@ -76,6 +76,9 @@ export default function Podcast() {
               <p className="text-2xl font-bold text-primary">PODCAST STUDIO IMAGE</p>
               <p className="text-muted-foreground mt-2">Professional podcast recording environment</p>
             </div>
+            {/* Dynamic floating elements */}
+            <div className="floating-accent-element w-14 h-14 top-1/4 right-10"></div>
+            <div className="floating-accent-element w-8 h-8 bottom-1/3 left-14"></div>
           </div>
         </div>
       </div>

@@ -72,9 +72,9 @@ export default function Photography() {
       {/* Sticky Image Side */}
       <div className="split-screen-image">
         <div className="sticky-image-container">
-          <div className="studio-image-placeholder">
+          <div className="studio-image-placeholder image-bleed-into-text">
             <div className="image-overlay">
-              <h1 className="split-screen-title" data-testid="text-photography-title">
+              <h1 className="split-screen-title title-break-out" data-testid="text-photography-title">
                 <span className="text-orange-accent">PHOTOGRAPHY</span>
                 <span className="text-primary block">STUDIO</span>
               </h1>
@@ -86,15 +86,19 @@ export default function Photography() {
               <p className="text-2xl font-bold text-primary">PHOTOGRAPHY STUDIO IMAGE</p>
               <p className="text-muted-foreground mt-2">Professional photography environment</p>
             </div>
+            {/* Dynamic floating elements for visual variety */}
+            <div className="floating-accent-element w-16 h-16 top-1/3 right-12"></div>
+            <div className="floating-accent-element w-10 h-10 bottom-1/4 left-16"></div>
+            <div className="floating-accent-element w-6 h-6 top-3/4 right-1/4"></div>
           </div>
         </div>
       </div>
 
       {/* Scrollable Content Side */}
-      <div className="split-screen-content">
-        <div className="content-section">
-          <div className="section-intro">
-            <h2 className="section-title text-orange-accent" data-testid="text-photography-features-title">
+      <div className="split-screen-content content-bleed-left">
+        <div className="content-section dynamic-overlap-container">
+          <div className="section-intro text-overlap-image">
+            <h2 className="section-title text-orange-accent title-break-out" data-testid="text-photography-features-title">
               STUDIO FEATURES
             </h2>
             <p className="section-description">
@@ -103,6 +107,9 @@ export default function Photography() {
               portraits to large-scale commercial shoots.
             </p>
           </div>
+          {/* Add subtle floating elements */}
+          <div className="floating-accent-element w-4 h-4 top-8 right-6"></div>
+          <div className="floating-accent-element w-8 h-8 top-32 left-8"></div>
 
           <div className="equipment-grid">
             {features.map((item, index) => {

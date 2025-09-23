@@ -46,18 +46,19 @@ export default function About() {
       <div className="relative py-20 px-6 bg-card/20">
         <div className="container mx-auto max-w-7xl">
           <div className="creative-two-col-layout">
-            <div className="creative-col-left relative">
+            <div className="creative-col-left relative title-break-container">
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-orange-accent/10 rounded-full"></div>
+              <div className="floating-accent-element w-24 h-24 -top-5 -right-8"></div>
               <div className="relative z-10">
-                <h2 className="text-5xl md:text-6xl font-bold mb-12 leading-tight" data-testid="text-why-exist-title">
+                <h2 className="text-5xl md:text-6xl font-bold mb-12 leading-tight title-break-out" data-testid="text-why-exist-title">
                   <span className="text-primary block">WHY</span>
                   <span className="text-orange-accent block">WE EXIST</span>
                 </h2>
               </div>
             </div>
             
-            <div className="creative-col-right">
-              <div className="space-y-8">
+            <div className="creative-col-right content-bleed-left dynamic-overlap-container">
+              <div className="space-y-8 text-overlap-image">
                 <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-why-exist-description">
                   We saw a gap and wanted to give back. ON3 is built with integrity, a safe, 
                   inspiring space where artists can land in Melbourne, feel at home, tap-in and 
@@ -77,15 +78,17 @@ export default function About() {
       <div className="relative py-20 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="overlapped-content-layout">
-            <div className="overlapped-image-container">
-              <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border transform rotate-1">
+            <div className="overlapped-image-container image-bleed-into-text">
+              <div className="w-full h-96 bg-card/30 rounded-xl flex items-center justify-center border border-border transform rotate-1 content-bleed-right">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-primary">IMAGE HERE</p>
                   <p className="text-muted-foreground mt-2">Artists collaboration image placeholder</p>
                 </div>
               </div>
-              {/* Overlapping accent element */}
+              {/* Enhanced overlapping accent elements */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-accent/20 rounded-xl -rotate-12"></div>
+              <div className="floating-accent-element w-16 h-16 -top-3 left-1/3"></div>
+              <div className="floating-accent-element w-8 h-8 bottom-4 left-1/4"></div>
             </div>
             
             <div className="overlapped-text-container">

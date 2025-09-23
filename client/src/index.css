@@ -925,6 +925,71 @@
   border-radius: 12px;
 }
 
+/* Enhanced overlapping and bleeding effects for dynamic collage feel */
+.title-break-container {
+  position: relative;
+  overflow: visible;
+}
+
+.title-break-out {
+  position: relative;
+  transform: translateX(-15%);
+  z-index: 20;
+}
+
+.content-bleed-right {
+  position: relative;
+  margin-right: -4rem;
+  z-index: 15;
+}
+
+.content-bleed-left {
+  position: relative;
+  margin-left: -4rem;
+  z-index: 15;
+}
+
+.image-bleed-into-text {
+  position: relative;
+  overflow: visible;
+}
+
+.image-bleed-into-text::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -3rem;
+  width: 6rem;
+  height: 60%;
+  background: linear-gradient(90deg, transparent 0%, var(--card) 30%, var(--card) 100%);
+  z-index: 5;
+  border-radius: 12px;
+  transform: rotate(-2deg);
+}
+
+.dynamic-overlap-container {
+  position: relative;
+  transform: rotate(-0.5deg);
+}
+
+.floating-accent-element {
+  position: absolute;
+  background: var(--accent-orange);
+  opacity: 0.1;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.text-overlap-image {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  margin: -2rem 0 -2rem -3rem;
+  border-radius: 16px;
+  z-index: 25;
+}
+
 @media (max-width: 1024px) {
   .section-asymmetric {
     grid-template-columns: 1fr;
@@ -937,6 +1002,30 @@
   }
   .content-overlap-subtle {
     margin-left: 0;
+  }
+  
+  /* Mobile adjustments for overlapping effects */
+  .title-break-out {
+    transform: translateX(-5%);
+  }
+  
+  .content-bleed-right,
+  .content-bleed-left {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .image-bleed-into-text::before {
+    display: none;
+  }
+  
+  .text-overlap-image {
+    margin: 0;
+    padding: 1.5rem;
+  }
+  
+  .dynamic-overlap-container {
+    transform: none;
   }
 }
 
@@ -999,6 +1088,19 @@ html {
   
   .submit-btn-orange:hover {
     transform: none;
+  }
+  
+  /* Disable overlapping effects transforms for reduced motion */
+  .title-break-out {
+    transform: none !important;
+  }
+  
+  .dynamic-overlap-container {
+    transform: none !important;
+  }
+  
+  .image-bleed-into-text::before {
+    transform: none !important;
   }
 }
 
