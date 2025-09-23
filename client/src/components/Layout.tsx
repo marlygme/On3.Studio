@@ -202,59 +202,52 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="bg-card border-t border-border py-12 px-6">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
-            <div>
-              <img 
-                src={on3Logo} 
-                alt="ON3 STUDIO Logo" 
-                className="h-12 w-auto mb-4"
-              />
-              <p className="text-muted-foreground mb-6">
-                A creative lounge in Melbourne. A home away from home for artists.
+      {/* Bold Footer Design Statement */}
+      <footer className="bold-footer" data-testid="footer-bold">
+        {/* Floating accent elements */}
+        <div className="footer-accent accent-1"></div>
+        <div className="footer-accent accent-2"></div>
+        
+        {/* Massive email address */}
+        <a 
+          href="mailto:TEAM@ON3.STUDIO" 
+          className="massive-email"
+          data-testid="link-email-massive"
+        >
+          TEAM@ON3.STUDIO
+        </a>
+        
+        {/* Contact overlay - appears on hover */}
+        <div className="contact-overlay">
+          <div className="contact-grid">
+            <div className="contact-item" data-testid="contact-location">
+              <h3>Location</h3>
+              <p>325 Victoria St</p>
+              <p>Brunswick VIC 3056</p>
+              <p>Melbourne, Australia</p>
+            </div>
+            
+            <div className="contact-item" data-testid="contact-email">
+              <h3>Get In Touch</h3>
+              <p>
+                <a href="mailto:TEAM@ON3.STUDIO">TEAM@ON3.STUDIO</a>
               </p>
-              <a 
-                href="mailto:TEAM@ON3.STUDIO" 
-                className="text-primary footer-link"
-                data-testid="link-email-footer"
-              >
-                TEAM@ON3.STUDIO
-              </a>
+              <p>For bookings & inquiries</p>
             </div>
             
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                {navigation.map((item) => (
-                  <Link 
-                    key={item.name} 
-                    href={item.href} 
-                    data-testid={`footer-link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className="block text-muted-foreground footer-link transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+            <div className="contact-item" data-testid="contact-studio">
+              <h3>The Studio</h3>
+              <p>Recording • Podcast • Photography</p>
+              <p>Creative Lounge • Events</p>
+              <p>A home away from home for artists</p>
             </div>
             
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <div className="space-y-2">
-                <p className="text-muted-foreground">Recording Studio</p>
-                <p className="text-muted-foreground">Podcast Production</p>
-                <p className="text-muted-foreground">Photography Studio</p>
-                <p className="text-muted-foreground">Creative Lounge</p>
-              </div>
+            <div className="contact-item" data-testid="contact-community">
+              <h3>Community</h3>
+              <p>Built with integrity</p>
+              <p>For the creative community</p>
+              <p>© 2024 ON3 STUDIO</p>
             </div>
-          </div>
-          
-          <div className="border-t border-border mt-12 pt-8 text-center">
-            <p className="text-muted-foreground">
-              © 2024 ON3 STUDIO. Built with integrity for the creative community.
-            </p>
           </div>
         </div>
       </footer>

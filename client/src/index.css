@@ -1273,6 +1273,196 @@ body::before {
   animation-delay: 6s;
 }
 
+/* ================================
+   BOLD FOOTER DESIGN STATEMENT
+   ================================ */
+
+/* Bold footer with massive email */
+.bold-footer {
+  position: relative;
+  min-height: 60vh;
+  background: linear-gradient(135deg, var(--background) 0%, var(--card) 100%);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bold-footer:hover {
+  background: linear-gradient(135deg, var(--card) 0%, var(--background) 100%);
+}
+
+/* Massive email typography */
+.massive-email {
+  font-size: clamp(3rem, 8vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--foreground);
+  text-align: center;
+  transition: all 0.4s ease;
+  background: linear-gradient(135deg, var(--primary) 0%, hsl(16, 100%, 60%) 50%, var(--foreground) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.bold-footer:hover .massive-email {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px hsla(16, 100%, 60%, 0.3));
+}
+
+/* Contact info overlay - hidden by default */
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+}
+
+.bold-footer:hover .contact-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contact info grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.contact-item {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: contact-item-in 0.6s ease forwards;
+}
+
+.contact-item:nth-child(1) { animation-delay: 0.1s; }
+.contact-item:nth-child(2) { animation-delay: 0.2s; }
+.contact-item:nth-child(3) { animation-delay: 0.3s; }
+.contact-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes contact-item-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-item h3 {
+  color: hsl(16, 100%, 60%);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-item p {
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.contact-item a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: hsl(16, 100%, 60%);
+}
+
+/* Floating accent for footer */
+.footer-accent {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, hsla(16, 100%, 60%, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: footer-float 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.footer-accent.accent-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.footer-accent.accent-2 {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+@keyframes footer-float {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translate(20px, -10px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .bold-footer {
+    min-height: 50vh;
+    padding: 2rem 1rem;
+  }
+  
+  .massive-email {
+    font-size: clamp(2rem, 12vw, 6rem);
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  /* Make contact overlay visible on mobile since hover doesn't work on touch */
+  .contact-overlay {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* Adjust massive email on mobile to work with visible overlay */
+  .massive-email {
+    position: relative;
+    z-index: 5;
+  }
+}
+
 @media (min-width: 768px) {
   .section-spacing {
     padding: 6rem 0;
