@@ -65,7 +65,7 @@ export default function Contact() {
         <div className="professional-grid lg:grid-cols-2">
           {/* Contact Information */}
           <div>
-            <h2 className="text-3xl font-bold mb-8 text-orange-accent" data-testid="text-contact-info-title">CONTACT INFORMATION</h2>
+            <h2 className="text-3xl font-bold text-orange-accent section-heading" data-testid="text-contact-info-title">CONTACT INFORMATION</h2>
             <div className="space-y-8">
               <div className="flex items-center gap-4 contact-item" data-testid="contact-email">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
@@ -93,8 +93,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-12">
-              <h3 className="text-xl font-bold mb-6">How It Works</h3>
+            <div className="mt-12 how-it-works">
+              <h3 className="text-xl font-bold section-heading">How It Works</h3>
               <div className="space-y-6">
                 <div className="flex gap-4 step-item">
                   <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">

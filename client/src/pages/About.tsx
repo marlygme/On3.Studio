@@ -89,7 +89,7 @@ export default function About() {
             </div>
             
             <div className="overlapped-text-container">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight" data-testid="text-community-title">
+              <h2 className="text-4xl md:text-5xl font-bold section-heading leading-tight" data-testid="text-community-title">
                 <span className="text-orange-accent">COMMUNITY</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6" data-testid="text-community-description-1">
@@ -111,7 +111,7 @@ export default function About() {
         <div className="container mx-auto max-w-7xl">
           <div className="creative-steps-layout">
             <div className="steps-header">
-              <h2 className="text-4xl md:text-5xl font-bold text-orange-accent mb-12" data-testid="text-how-it-works-title">
+              <h2 className="text-4xl md:text-5xl font-bold text-orange-accent section-heading" data-testid="text-how-it-works-title">
                 HOW IT WORKS
               </h2>
             </div>
