@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import on3Logo from "@assets/on3logo1_1758597235870.png";
+import on3Logo from "@assets/on3logo1_1758600541986.png";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -137,12 +137,14 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
-            {/* Central Dominant Text Logo */}
+            {/* Central Dominant Image Logo */}
             <div className="header-text-logo-container">
               <Link href="/" data-testid="link-home">
-                <h1 className="header-text-logo">
-                  <span className="text-primary">ON3</span> <span className="text-orange-accent">STUDIO</span>
-                </h1>
+                <img 
+                  src={on3Logo} 
+                  alt="ON3 STUDIO Logo" 
+                  className="h-10 w-auto cursor-pointer"
+                />
               </Link>
             </div>
 
@@ -202,52 +204,47 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
 
-      {/* Bold Footer Design Statement */}
-      <footer className="bold-footer" data-testid="footer-bold">
-        {/* Floating accent elements */}
-        <div className="footer-accent accent-1"></div>
-        <div className="footer-accent accent-2"></div>
-        
-        {/* Massive email address */}
-        <a 
-          href="mailto:TEAM@ON3.STUDIO" 
-          className="massive-email"
-          data-testid="link-email-massive"
-        >
-          TEAM@ON3.STUDIO
-        </a>
-        
-        {/* Contact overlay - appears on hover */}
-        <div className="contact-overlay">
-          <div className="contact-grid">
-            <div className="contact-item" data-testid="contact-location">
-              <h3>Location</h3>
-              <p>325 Victoria St</p>
-              <p>Brunswick VIC 3056</p>
-              <p>Melbourne, Australia</p>
+      {/* Traditional Footer */}
+      <footer className="bg-card border-t border-border" data-testid="footer-traditional">
+        <div className="container mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Contact Information */}
+            <div className="space-y-4" data-testid="footer-contact">
+              <h3 className="text-lg font-semibold text-primary">Get In Touch</h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>
+                  <a href="mailto:TEAM@ON3.STUDIO" className="cta-link" data-testid="link-email">
+                    TEAM@ON3.STUDIO
+                  </a>
+                </p>
+                <p>For bookings & inquiries</p>
+              </div>
             </div>
-            
-            <div className="contact-item" data-testid="contact-email">
-              <h3>Get In Touch</h3>
-              <p>
-                <a href="mailto:TEAM@ON3.STUDIO">TEAM@ON3.STUDIO</a>
-              </p>
-              <p>For bookings & inquiries</p>
+
+            {/* Location */}
+            <div className="space-y-4" data-testid="footer-location">
+              <h3 className="text-lg font-semibold text-primary">Location</h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>325 Victoria St</p>
+                <p>Brunswick VIC 3056</p>
+                <p>Melbourne, Australia</p>
+              </div>
             </div>
-            
-            <div className="contact-item" data-testid="contact-studio">
-              <h3>The Studio</h3>
-              <p>Recording • Podcast • Photography</p>
-              <p>Creative Lounge • Events</p>
-              <p>A home away from home for artists</p>
+
+            {/* About */}
+            <div className="space-y-4" data-testid="footer-about">
+              <h3 className="text-lg font-semibold text-primary">ON3 STUDIO</h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>Recording • Podcast • Photography</p>
+                <p>Creative Lounge • Events</p>
+                <p>A home away from home for artists</p>
+              </div>
             </div>
-            
-            <div className="contact-item" data-testid="contact-community">
-              <h3>Community</h3>
-              <p>Built with integrity</p>
-              <p>For the creative community</p>
-              <p>© 2024 ON3 STUDIO</p>
-            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
+            <p>&copy; 2024 ON3 STUDIO. Built with integrity for the creative community.</p>
           </div>
         </div>
       </footer>
