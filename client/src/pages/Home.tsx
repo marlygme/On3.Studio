@@ -145,6 +145,14 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden spotlight-hero"
         style={{ cursor: isSpotlightActive ? 'none' : 'default' }}
       >
+        {/* Textural gradient shapes for analogue feel */}
+        <div className="textural-gradient-shapes"></div>
+        
+        {/* Blurred light effects positioned throughout */}
+        <div className="blurred-light-effect orange top-left"></div>
+        <div className="blurred-light-effect warm bottom-right"></div>
+        <div className="blurred-light-effect soft-white mid-left"></div>
+        
         {/* Background Collage Layer */}
         <div className="absolute inset-0 spotlight-background">
           {backgroundImages.map((image, index) => (

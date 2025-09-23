@@ -1,6 +1,11 @@
 export default function About() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden relative">
+      {/* Textural layers for analogue feel */}
+      <div className="textural-gradient-shapes"></div>
+      <div className="blurred-light-effect warm bottom-right"></div>
+      <div className="blurred-light-effect soft-white mid-left"></div>
+      
       {/* Hero Section - Asymmetric Layout */}
       <div className="relative min-h-screen flex items-center px-6 py-20">
         <div className="container mx-auto max-w-7xl">
