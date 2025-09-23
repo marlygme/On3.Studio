@@ -161,31 +161,35 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-border">
-              <div className="flex flex-col space-y-4 pt-4">
-                {navigation.map((item) => (
-                  <Link 
-                    key={item.name} 
-                    href={item.href} 
-                    data-testid={`mobile-link-${item.name.toLowerCase().replace(' ', '-')}`}
-                    className={`cta-link transition-colors ${
-                      location === item.href 
-                        ? 'text-primary' 
-                        : 'text-muted-foreground'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              <div className="flex flex-col space-y-6 pt-4">
+                {/* Navigation Section */}
+                <div>
+                  <p className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Navigate</p>
+                  {navigation.map((item) => (
+                    <Link 
+                      key={item.name} 
+                      href={item.href} 
+                      data-testid={`mobile-link-${item.name.toLowerCase().replace(' ', '-')}`}
+                      className={`block py-2 pl-4 cta-link transition-colors ${
+                        location === item.href 
+                          ? 'text-orange-accent' 
+                          : 'text-muted-foreground'
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
                 
-                {/* Mobile Space Options */}
+                {/* The Space Section */}
                 <div className="border-t border-border pt-4">
-                  <p className="text-sm font-semibold text-primary mb-2">The Space</p>
+                  <p className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">The Space</p>
                   {spaceOptions.map((option) => (
                     <Link
                       key={option.name}
                       href={option.href}
-                      className="block py-2 pl-4 text-muted-foreground cta-link transition-colors"
+                      className="block py-2 pl-4 text-muted-foreground cta-link transition-colors hover:text-orange-accent"
                       data-testid={`mobile-dropdown-${option.name.toLowerCase().replace(/[\s\/]/g, '-')}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
