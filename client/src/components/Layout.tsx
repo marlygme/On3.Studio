@@ -52,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
             </Link>
             <div className="flex items-center space-x-4">
               <Link href="/booking" data-testid="button-book-now">
-                <button className="btn-orange-accent px-4 py-2 rounded-md font-semibold text-sm">
+                <button className="btn-orange-accent px-4 py-1 rounded-md font-semibold text-sm">
                   Book Now
                 </button>
               </Link>
@@ -151,7 +151,7 @@ export default function Layout({ children }: LayoutProps) {
             {/* Right Navigation Container */}
             <div className="header-button-container">
               <Link href="/booking" data-testid="button-book-now">
-                <button className="header-book-button btn-orange-accent rounded-md font-semibold">
+                <button className="header-book-button-compact btn-orange-accent rounded-md font-semibold">
                   Book Now
                 </button>
               </Link>

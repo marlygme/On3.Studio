@@ -1423,7 +1423,18 @@ body::before {
   transition: all 0.3s ease;
 }
 
-.header-book-button:hover {
+.header-book-button-compact {
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.header-book-button:hover,
+.header-book-button-compact:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(242, 210, 84, 0.4);
 }
